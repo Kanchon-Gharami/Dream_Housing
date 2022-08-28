@@ -229,12 +229,39 @@ body{
     height: 60px;
 }
 
+.dream_subtitle{
+    font-size: 18px;
+}
 
+.dream_title{
+    font-size: 34px;
+}
 
+.dream_paragraph{
+    font-size: 16px;
+}
 
+.dream_underline{
+    width: 45px;
+    height: 3px;
+    background-color: #F2693E;
+}
 
+.about_us ul li{
+    list-style-type: none;
+    font-size: 14px;
 
+}
 
+.about_us ul li img{
+    max-height: 22px;
+    max-width: 22px;
+
+}
+
+.about_us span{
+    padding-top: 5px !important;
+}
 
 
 
@@ -254,25 +281,25 @@ body{
     .footer_spacer{
         height: 0px !important;
     }
-
     .banner{
         min-height: 520px;
         background-position: top center;
         background-size: auto 100%;
         padding-top: 100px !important;
-    }
-    
-    
+    }    
     .banner_subtitle{
         font-size: 14px;
         text-align: center;
     }
-    
     .banner_title{
         font-size: 30px;
         margin: 0px !important;
         text-align: center;
     }
+    .about_pic{
+        display: none;
+    }
+    
 
 }
 
@@ -322,6 +349,16 @@ body{
     .banner_search_word{
         display: none;
     }
+
+    .about_us a{
+        margin: auto !important;
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .about_pic{
+        margin: 15px;
+    }    
 
 
 }
