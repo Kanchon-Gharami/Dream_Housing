@@ -4,6 +4,7 @@
 {% load static %}
 {% block content %}
 
+<!-- Start: Banner -->
 <div class="banner col-xl-12" style="background-image:url('{% static 'imgs/banner.png' %}')">
     <div class="col-xl-9">
         <p class="banner_subtitle text-grey fw-600 my-2 py-0">One Place</p>
@@ -11,7 +12,6 @@
             Where you can find your
             <span class="text-orange">Dream</span>
         </p>
-        
         <ul class="nav">
             <li class="active">
                 <button class="btn btn-lg btn-orange px-45" data-toggle="tab" href="#search_buy">Buy</button>
@@ -20,7 +20,6 @@
                 <button class="btn btn-lg btn-grey px-45" data-toggle="tab" href="#search_rent">Rent</button>
             </li>
         </ul>
-
         <div class="tab-content">
             <div id="search_buy" class="tab-pane fade in active show">
                 <form action="" method="">
@@ -49,13 +48,146 @@
                 </form>
             </div>
         </div>
-        
     </div>
 </div>
+<!-- End: Banner -->
+
+
+<!-- Start: Latest Listing -->
+<div class="row mx-0 d-flex justify-content-center latest_listing">
+    <div class="col-xl-10 bg-light p-5">
+        <div class="row m-0 mb-2">
+            <h4 class="fw-700 text-left">Latest listing</h4>
+            <a href="#" class="ml-auto fw-600">
+                view all
+                <i class='fa fa-angle-double-right' style="font-size: 16px;"></i>
+            </a>
+        </div>
+
+        <div class="row m-0 d-flex justify-content-center">
+            <!-- start: Dream_Card-->
+            <a href="#">
+                <div class="dream_card mx-4">
+                    <div class="dream_card_img" style="background-image: url('{% static 'imgs/card_pic.png' %}');">
+                        <div class="non_hover_content">
+                            <div class="tl_tag bg-orange d-flex justify-content-center">
+                                FOR RENT
+                            </div>
+                            <div class="row m-0 card_info py-3">
+                                <div class="text-orange col-xl-12 p-0 fw-700 info_row">
+                                    $ 39,990
+                                    <span class="fw-500">/month</span>
+                                </div>
+                                <div class="fw-200 text-white col-xl-12 p-0">
+                                    <img src="{% static 'icons/Icon material-location-on.png' %}" class="mr-1">
+                                    1/b/2 Adabor, Dhaka
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="overlay_content">
+                            <p>FOR SALE</p>
+                            <p class="fw-800">$ 39,990</p>
+                            <button class="btn btn-orange my-1 px-4">view details</button>
+                            <img class="d-flex my-2" src="{% static 'icons/card_ico.png' %}" style="width: 30px; height: 30px;">
+                            <p class="">1/b/2 Adabor, Dhaka</p>
+                    </div>
+                </div>
+            </a>
+            <!-- End: Dream_Card-->
+            <!-- start: Dream_Card-->
+            <a href="#">
+                <div class="dream_card mx-4">
+                    <div class="dream_card_img" style="background-image: url('{% static 'imgs/card_pic.png' %}');">
+                        <div class="non_hover_content">
+                            <div class="tl_tag bg-green d-flex justify-content-center">
+                                FOR SALE
+                            </div>
+                            <div class="row m-0 card_info py-3">
+                                <div class="text-orange col-xl-12 p-0 fw-700 info_row">
+                                    $ 39,990
+                                    <span class="fw-500">/month</span>
+                                </div>
+                                <div class="fw-200 text-white col-xl-12 p-0">
+                                    <img src="{% static 'icons/Icon material-location-on.png' %}" class="mr-1">
+                                    1/b/2 Adabor, Dhaka
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="overlay_content">
+                            <p>FOR SALE</p>
+                            <p class="fw-800">$ 39,990</p>
+                            <button class="btn btn-orange my-1 px-4">view details</button>
+                            <img class="d-flex my-2" src="{% static 'icons/card_ico.png' %}" style="width: 30px; height: 30px;">
+                            <p class="">1/b/2 Adabor, Dhaka</p>
+                    </div>
+                </div>
+            </a>
+            <!-- End: Dream_Card-->
+            <!-- start: Dream_Card-->
+            <a href="#">
+                <div class="dream_card mx-4">
+                    <div class="dream_card_img" style="background-image: url('{% static 'imgs/card_pic.png' %}');">
+                        <div class="non_hover_content">
+                            <div class="tl_tag bg-orange d-flex justify-content-center">
+                                FOR RENT
+                            </div>
+                            <div class="row m-0 card_info py-3">
+                                <div class="text-orange col-xl-12 p-0 fw-700 info_row">
+                                    $ 39,990
+                                    <span class="fw-500">/month</span>
+                                </div>
+                                <div class="fw-200 text-white col-xl-12 p-0">
+                                    <img src="{% static 'icons/Icon material-location-on.png' %}" class="mr-1">
+                                    1/b/2 Adabor, Dhaka
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="overlay_content">
+                            <p>FOR SALE</p>
+                            <p class="fw-800">$ 39,990</p>
+                            <button class="btn btn-orange my-1 px-4">view details</button>
+                            <img class="d-flex my-2" src="{% static 'icons/card_ico.png' %}" style="width: 30px; height: 30px;">
+                            <p class="">1/b/2 Adabor, Dhaka</p>
+                    </div>
+                </div>
+            </a>
+            <!-- End: Dream_Card-->
+            
+        </div>
+
+    </div>
+</div>
+
+
+
+<!--  
+
+    <div class="dream_card_img" style="background-image: url('{% static 'imgs/card_pic.png' %}');">
+
+    </div>
+
+    <img class="d-flex" src="{% static 'imgs/card_pic.png' %}">
+
+
+
+-->
+
+
+
+
+<!-- End: Latest Listing -->
+
 
 <div style="height: 120px;"></div>
 
 
+<!-- Start: About Us -->
 <div class="row m-0 d-flex justify-content-center about_us">
     <div class="col-xl-5">
         <p class="dream_subtitle text-orange fw-600 m-0">Explore</p>
@@ -78,7 +210,7 @@
                         <span class="fw-600">Smart home design</span>
                     </li>
                     <li class="py-2">
-                        <img src="{% static 'icons/Icon material-attach-money.png' %}" class="mr-3">
+                        <img src="{% static 'icons/Icon material-attach-money.png' %}" class="ml-1 mr-2">
                         <span class="fw-600">Cheap rent</span>
                     </li>
                 </ul>
@@ -109,7 +241,7 @@
         <img src="{% static 'imgs/about_pic.png' %}" class="ml-3 img-fluid">
     </div>
 </div>
-
+<!-- End: About Us -->
 
 
 

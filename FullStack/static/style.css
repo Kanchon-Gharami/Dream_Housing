@@ -10,6 +10,39 @@ body{
 
 
 /* custome css repleceted from bootstrap */
+.bg-orange{
+    background-color: #F2693E;
+}
+
+.bg-green{
+    background-color: #39A845;
+}
+
+.text-grey{
+    color: #636466;
+}
+
+.text-orange{
+    color: #F2693E;
+}
+
+.text-white{
+    color: white;
+}
+
+.text-blue{
+    color: #289BE8;
+}
+
+.text-black{
+    color: black;
+}
+
+
+a{
+    color: #289BE8;
+}
+
 .btn-orange {
     color: #fff;
     background-color: #F2693E;
@@ -35,15 +68,6 @@ body{
 .btn-grey{
     color: #636466;
     background-color: #ECECEC;
-}
-
-
-.text-grey{
-    color: #636466;
-}
-
-.text-orange{
-    color: #F2693E;
 }
 
 .fw-100{
@@ -73,6 +97,15 @@ body{
 .fw-700{
     font-weight: 700;
 }
+
+.fw-800{
+    font-weight: 800;
+}
+
+.fw-900{
+    font-weight: 900;
+}
+
 
 .pl-45{
     padding-left: 2rem !important;
@@ -107,8 +140,8 @@ body{
 
 /* navbar css */
 .top_nav{
-    background-color: #000;
-    height: 40px;
+    background-color: #222;
+    height: 36px;
     font-family: 'Montserrat';
 }
 
@@ -202,13 +235,11 @@ body{
 
 
 
-
-
-
 /* index */
 .banner{
-    min-height: 615px;
+    min-height: 720px;
     background-position: top center;
+    background-repeat: no-repeat;
     background-size: 100% auto;
     padding-top: 170px;
     padding-left: 100px;
@@ -263,6 +294,110 @@ body{
     padding-top: 5px !important;
 }
 
+.latest_listing{
+    margin-top: -100px !important;
+}
+
+
+/* card css */
+.dream_card{
+    height: 400px;
+    width: 330px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative;    
+}
+
+
+.dream_card .dream_card_img{
+    height: 400px;
+    width: 330px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.dream_card:hover{
+    outline: 24px solid white;
+    box-shadow:
+                0px 0px 3.6px rgba(0, 0, 0, 0.125),
+                0px 0px 10px rgba(0, 0, 0, 0.18),
+                0px 0px 24.1px rgba(0, 0, 0, 0.235),
+                0px 0px 80px rgba(0, 0, 0, 0.36);
+
+}
+
+.overlay_content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.overlay_content:hover{
+    opacity: 1;
+}
+
+
+.overlay_content:hover > * {
+    transform: translateY(0);
+}
+
+
+.dream_card:hover .non_hover_content{
+    display: none;
+}
+
+.tl_tag{
+    width: 120px;
+    height: 40px;
+    border-bottom-right-radius: 5px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 8px;
+}
+
+
+.card_info{
+    position: absolute;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 80px;
+    width: 100%;
+    font-size: 18px;
+    padding-left: 30px;
+}
+
+.card_info img{   
+    height: 15px;
+    width: auto;
+}
+
+
+
+/*
+
+
+    background-color: rgba(0, 0, 0, 0.8);
+
+*/
+
+
+
+
+
+
 
 
 
@@ -273,7 +408,13 @@ body{
 
 
 @media only screen and (max-width: 1200px) {
-    
+    .latest_listing{
+        margin-top: 0px !important;
+    }
+    .banner{
+        min-height: 520px;
+    }
+
 }
 
 
