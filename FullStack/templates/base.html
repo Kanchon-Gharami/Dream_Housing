@@ -24,6 +24,9 @@
   	<!-- animated css link -->
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
 
+	<!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+
   	<!-- font awsome css link -->
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -186,3 +189,69 @@ $(document).ready(function() {
     $('#sort').DataTable();
 } );
 </script>
+
+
+
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+	var swiper = new Swiper("#swiper1", {
+		slidesPerView: 1,
+		centeredSlides: false,
+		slidesPerGroupSkip: 1,
+		grabCursor: true,
+		keyboard: {
+			enabled: true,
+		},
+		breakpoints: {
+			769: {
+			slidesPerView: 3,
+			slidesPerGroup: 3,
+			},
+		},
+		scrollbar: {
+			el: ".swiper-scrollbar",
+		},
+		navigation: {
+			nextEl: ".slider_next",
+			prevEl: ".slider_prev",
+		},
+		pagination: {
+			el: ".swiper-pagination",
+			clickable: true,
+		},
+	});
+	var swiper = new Swiper("#swiper2", {
+		slidesPerView: 1,
+		centeredSlides: false,
+		slidesPerGroupSkip: 1,
+		grabCursor: true,
+		keyboard: {
+			enabled: true,
+		},
+		breakpoints: {
+			769: {
+			slidesPerView: 3,
+			slidesPerGroup: 3,
+			},
+		},
+		scrollbar: {
+			el: ".swiper-scrollbar",
+		},
+		navigation: {
+			nextEl: ".slider_next",
+			prevEl: ".slider_prev",
+		},
+		pagination: {
+			el: ".swiper-pagination",
+			clickable: true,
+		},
+	});
+</script>
+
+
+
+

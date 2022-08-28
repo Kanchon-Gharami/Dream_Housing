@@ -386,18 +386,52 @@ a{
 
 
 
-/*
+/* carousel & carousel container css */
+
+.listing_carousel_container{
+    min-height: 720px;
+}
+
+.swiper {
+    width: 80%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;    
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 
+.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after {
+    content: '';
+}
+
+.slider_next, .slider_prev{
+    width: 75px;
+    height: 75px;
+}
+
+.swiper-slide .card_info{
+    position: absolute;
+    bottom: 0px;
     background-color: rgba(0, 0, 0, 0.8);
+    height: 80px;
+    width: 100%;
+    font-size: 18px;
+    padding-left: 30px;
+}
 
-*/
-
-
-
-
-
-
+.swiper-slide .card_info img{   
+    height: 15px;
+    width: auto;
+}
 
 
 
