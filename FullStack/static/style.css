@@ -1,0 +1,327 @@
+/* 
+font-family: 'Montserrat';
+font-family: 'Open Sans';
+*/
+
+body{
+    font-family: 'Montserrat';
+}
+
+
+
+/* custome css repleceted from bootstrap */
+.btn-orange {
+    color: #fff;
+    background-color: #F2693E;
+    border-color: #F2693E;
+}
+
+.btn-orange:hover {
+    color: #fff;
+    background-color: #ff5521;
+}
+
+.btn-outline-orange {
+    color: #F2693E;
+    border-color: #F2693E;
+}
+
+.btn-outline-orange:hover {
+    color: #fff;
+    background-color: #f75b2c;
+    border-color: none;
+}
+
+.btn-grey{
+    color: #636466;
+    background-color: #ECECEC;
+}
+
+
+.text-grey{
+    color: #636466;
+}
+
+.text-orange{
+    color: #F2693E;
+}
+
+.fw-100{
+    font-weight: 100;
+}
+
+.fw-200{
+    font-weight: 200;
+}
+
+.fw-300{
+    font-weight: 300;
+}
+
+.fw-400{
+    font-weight: 400;
+}
+
+.fw-500{
+    font-weight: 500;
+}
+
+.fw-600{
+    font-weight: 600;
+}
+
+.fw-700{
+    font-weight: 700;
+}
+
+.pl-45{
+    padding-left: 2rem !important;
+}
+
+.pr-45{
+    padding-right: 2rem !important;
+}
+
+.px-45{
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+}
+
+.ml-45{
+    margin-left: 2rem !important;
+}
+
+.mr-45{
+    margin-right: 2rem !important;
+}
+
+.mx-45{
+    margin-left: 2rem !important;
+    margin-right: 2rem !important;
+}
+
+
+
+
+
+
+/* navbar css */
+.top_nav{
+    background-color: #000;
+    height: 40px;
+    font-family: 'Montserrat';
+}
+
+.top_nav_ico_grp{
+    height: 40px;
+}
+
+.top_nav_ico{
+    width: auto;
+    height: 16px;
+}
+
+.top_nav_text{
+    color: white;
+    font-size: 14px;
+    margin-top: 1px;
+}
+
+.dream_nav{
+    box-shadow: 1px 1px 5.3px rgba(0, 0, 0, 0.02),
+        3.4px 3.4px 17.9px rgba(0, 0, 0, 0.03),
+        15px 15px 80px rgba(0, 0, 0, 0.05);
+}
+
+.navbar_logo{
+    max-height: 40px;
+    width: auto;
+}
+
+.nav-item{
+    margin-left: 12px;
+    margin-right: 12px;
+}
+.nav-link{
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+}
+
+.nav-link:hover{
+    border-bottom: 2.5px solid #F2693E;
+
+}
+
+.navbar-nav>.active{
+    border-bottom: 2.5px solid #F2693E;
+}
+
+.navbar-nav:hover>.active{
+    border-bottom: none;
+}
+
+
+
+
+/* footer css */
+.dream_footer{
+    min-height: 375px;
+    background-color: #000000;
+    color: white;
+    padding: 30px;
+    padding-top: 100px;
+}
+
+
+.footer_list li{
+    list-style-type: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.footer_list li img{
+    max-width: 20px;
+    max-height: 20px;
+}
+
+.footer_menu li{
+    list-style-type: none;
+    display: inline;
+}
+
+.footer_active{
+    color: #F2693E;
+}
+
+.br-w1{
+    border-right: 1px solid white;
+}
+
+
+
+
+
+
+
+/* index */
+.banner{
+    min-height: 615px;
+    background-position: top center;
+    background-size: 100% auto;
+    padding-top: 170px;
+    padding-left: 100px;
+}
+
+
+.banner_subtitle{
+    font-size: 18px;
+}
+
+.banner_title{
+    font-size: 55px;
+    max-width: 700px;
+    line-height: 0.9;
+}
+
+.banner_inputbox{
+    height: 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* responsiveness */
+
+
+@media only screen and (max-width: 1200px) {
+    
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .footer_spacer{
+        height: 0px !important;
+    }
+
+    .banner{
+        min-height: 520px;
+        background-position: top center;
+        background-size: auto 100%;
+        padding-top: 100px !important;
+    }
+    
+    
+    .banner_subtitle{
+        font-size: 14px;
+        text-align: center;
+    }
+    
+    .banner_title{
+        font-size: 30px;
+        margin: 0px !important;
+        text-align: center;
+    }
+
+}
+
+/* android screen: 360px */
+
+@media only screen and (max-width: 600px) {
+    .top_nav_ico_grp{
+        margin: auto !important;
+    }
+
+    .top_nav_ico{
+        width: auto;
+        height: 10px;
+        margin-right: 5px !important;
+    }
+    
+    .top_nav_text{
+        font-size: 10px;
+        margin-top: 2px;
+    }
+    .banner{
+        padding: 20px;
+    }
+
+    .banner .nav{
+        margin-top: 40px;
+    }
+    
+    .banner .btn-lg{
+        width: 75px !important;
+        height: 36px !important;
+        font-size: 16px;
+        padding: 0px !important;
+
+    }
+
+    .banner .btn-xl{
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 16px;
+        padding: 0px !important;       
+    }
+
+    .banner .banner_inputbox{
+        height: 40px;
+    }
+    .banner_search_word{
+        display: none;
+    }
+
+
+}

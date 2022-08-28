@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <title></title>
+
+    <meta charset="UTF-8">
+
+  	<!-- media queary support -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
+  	<!-- Latest compiled and minified CSS -->
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+  	<!-- jQuery library -->
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  	<!-- Popper JS -->
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  	<!-- Latest compiled JavaScript -->
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+  	<!-- animated css link -->
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+
+  	<!-- font awsome css link -->
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  	<!-- poppins font link -->
+  	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+  	<!-- google font link -->
+  	<link href='https://fonts.googleapis.com/css?family=Open Sans:100,200,300,400,500,600,700,800,900|Ubuntu:100,200,300,400,500,600,700,800,900' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900|Ubuntu:100,200,300,400,500,600,700,800,900' rel='stylesheet'>
+
+  	<!-- custom css link -->
+  	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+	
+
+  </head>
+  <body>
+    
+    <div class="row m-0 top_nav">
+		<div class="row m-0 ml-auto mr-5 pt-2 top_nav_ico_grp">
+			<img src="{% static 'icons/ico_phone.png' %}" alt="" class="mt-1 mr-3 top_nav_ico">
+			<p class="top_nav_text">+88 01752 452189</p>
+		</div>
+		<div class="row m-0 mx-5 pt-2 top_nav_ico_grp">
+			<img src="{% static 'icons/ico_location.png' %}" alt="" class="mt-1 mr-3 top_nav_ico">
+			<p class="top_nav_text">1/b/2 Adabor, Dhaka</p>
+		</div>
+    </div>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-white dream_nav">
+		<a class="navbar-brand" href="#">
+			<img src="{% static 'icons/logo.png' %}" class="ml-3 navbar_logo">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav m-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">About Us</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Listing
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Agents</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Contact Us</a>
+				</li>
+			</ul>
+			<ul class="navbar-nav mr-3">
+				<a href="mx-1">
+					<button class="btn btn-outline-dark my-2 px-4 my-sm-0">
+						<i class="fa fa-search pr-1"></i>
+						Search
+					</button>
+				</a>
+				<a href="#" class="mx-1">
+					<button class="btn btn-orange my-2 px-4 my-sm-0">
+						<i class="fa fa-calendar pr-1"></i>
+						Latest
+					</button>
+				</a>
+			</ul>
+		</div>
+	</nav>
+
+    {% block content %}
+    
+    {% endblock %}
+
+	<div class="row m-0 dream_footer d-flex justify-content-center">
+		<div class="col-xl-3 col-md-6 col-sm-8" style="min-height: 300px;">
+			<h3>Contact Us</h3>
+			<ul class="footer_list my-4 px-2">
+				<li>
+					<img src="{% static 'icons/Icon ionic-md-call.png' %}" class="mr-3">
+					+88 01741624086
+				</li>
+				<li>
+					<img src="{% static 'icons/Icon ionic-ios-mail.png' %}" class="mr-3">
+					dreamlodging.123@gmail.com
+				</li>
+				<li>
+					<img src="{% static 'icons/Icon material-location-on.png' %}" class="mr-4">
+					1/b/2 Adabor, Dhaka
+				</li>
+			</ul>
+			<button class="btn btn-light mt-2 px-3">
+				<i class='fa fa-location-arrow mr-2'></i>
+				Find us on google map
+			</button>
+		</div>
+		<div class="col-xl-4 footer_spacer" style="height: 250px;"></div>
+		<div class="col-xl-3 col-md-6 col-sm-8" style="min-height: 250px;">
+			<h4 class="text-right">We Offer</h4>
+			<ul class="footer_list my-3 px-2 float-right text-right">
+				<li>
+					Buying an apartment
+					<img src="{% static 'icons/Iconly-Light-Outline-Arrow---Left-3.png' %}" class="ml-2">
+				</li>
+				<li>
+					Selling an apartment
+					<img src="{% static 'icons/Iconly-Light-Outline-Arrow---Left-3.png' %}" class="ml-2">
+				</li>
+				<li>
+					Renting an apartment
+					<img src="{% static 'icons/Iconly-Light-Outline-Arrow---Left-3.png' %}" class="ml-2">
+				</li>
+			</ul>
+			<div style="clear: both;"></div>
+
+			<ul class="footer_menu float-right text-right mt-3">
+				<li class="footer_active">Home</li>
+				<li class="br-w1 ml-1 mr-2"></li>
+				<li>About Us</li>
+				<li class="br-w1  ml-1 mr-2"></li>
+				<li>Listings</li>
+				<li class="br-w1  ml-1 mr-2"></li>
+				<li>Agents</li>
+				<li class="br-w1  ml-1 mr-2"></li>
+				<li>Review</li>
+				<li class="br-w1  ml-1 mr-2"></li>
+				<li>Contact Us</li>				
+			</ul>
+			<div style="clear: both;"></div>
+
+		</div>
+	</div>
+
+	<div class="row m-0 d-flex justify,content-center bg-light">
+		<p class="pt-3 mx-auto">Copyright reserved by Dream Lodging</p>
+	</div>
+
+  </body>
+</html>
+
+
+
+<!-- Table Sorting Library -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+<script src=" https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('#sort').DataTable();
+} );
+</script>

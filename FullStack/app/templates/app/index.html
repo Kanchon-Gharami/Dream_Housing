@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="banner col-xl-12" style="background-image:url('{% static 'imgs/banner.png' %}')">
+    <div class="col-xl-9">
+        <p class="banner_subtitle text-grey fw-600 my-2 py-0">One Place</p>
+        <p class="banner_title text-grey fw-600 my-0 pt-3 pb-5">
+            Where you can find your
+            <span class="text-orange">Dream</span>
+        </p>
+        
+        <ul class="nav">
+            <li class="active">
+                <button class="btn btn-lg btn-orange px-45" data-toggle="tab" href="#search_buy">Buy</button>
+            </li>
+            <li class="">
+                <button class="btn btn-lg btn-grey px-45" data-toggle="tab" href="#search_rent">Rent</button>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="search_buy" class="tab-pane fade in active show">
+                <form action="" method="">
+                    <div class="input-group">
+                        <input class="form-control banner_inputbox" name="search_key" type="text" placeholder="Enter a location to find an apartment">
+                        <div class="input-group-append">
+                            <button class="btn btn-xl px-5 btn-orange" type="submit">
+                                <i class="fa fa-search pr-1"></i>
+                                <span class="banner_search_word">Search</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="search_rent" class="tab-pane fade">
+                <form action="" method="">
+                    <div class="input-group">
+                        <input class="form-control banner_inputbox" name="search_key" type="text" placeholder="Enter a location to find an apartment">
+                        <div class="input-group-append">
+                            <button class="btn btn-xl px-5 btn-orange" type="submit">
+                                <i class="fa fa-search pr-1"></i>
+                                <span class="banner_search_word">Search</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+<div class="p-5">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias dolor eaque nulla nesciunt quas velit temporibus corrupti ipsam, repellat quia sint consequuntur voluptas. Laboriosam magnam dolor ut quo atque corporis.
+</div>
+
+<div style="height: 400px;">
+    
+</div>
+
+{% endblock %}
