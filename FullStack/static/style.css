@@ -298,6 +298,28 @@ a{
     margin-top: -100px !important;
 }
 
+.login_modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login_modal img{
+    width: 140px;
+}
+
+.cursor_hand{
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
 
 /* card css */
 .dream_card{
@@ -433,6 +455,35 @@ a{
     width: auto;
 }
 
+
+
+
+
+
+
+
+/* Agent card */
+.agent_card img{
+    width: 210px;
+}
+
+.agent_card img{
+    width: 210px;
+    height: 210px;
+    background-position: center center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+.no_card{
+    width: 200px;
+    height: 240px;
+}
+
+.no_card img{
+    width: 80px;
+    height: 80px;
+}
 
 
 
