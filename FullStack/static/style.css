@@ -106,6 +106,25 @@ a{
     font-weight: 900;
 }
 
+.fs-12{
+    font-size: 12px;
+}
+
+.fs-14{
+    font-size: 14px;
+}
+
+.fs-15{
+    font-size: 15px;
+}
+
+.fs-16{
+    font-size: 16px;
+}
+
+.fs-18{
+    font-size: 18px;
+}
 
 .pl-45{
     padding-left: 2rem !important;
@@ -482,8 +501,6 @@ a{
 
 
 
-
-
 /* page header */
 .page_header{
     height: 155px;
@@ -493,20 +510,44 @@ a{
     color: white;
 }
 
+.hover-white:hover{
+    color: white;
+    text-decoration: none;
+}
 
 
 
 
+/* listing css */
+.listing_card{
+    border: 0.5px solid #DFDFDF;
+    padding: 5px;
+    min-height: 350px;
+}
+
+.listing_card_img{
+    min-height: 350px;
+}
+
+.listing_price_tag{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: 40px;
+    border-radius: 0px;
+    border-top-left-radius: 8px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 8px;
+}
 
 
 
+/* Start: Listing Sajol css */
 
 
-
-
-
-
-
+/* End: Listing Sajol css */
 
 
 

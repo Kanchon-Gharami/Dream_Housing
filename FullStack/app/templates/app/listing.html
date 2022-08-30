@@ -5,15 +5,131 @@
 {% block content %}
 
 
-<div class="row m-0 page_header" style="background-image: url('{% static 'imgs/header_background.png' %}')">
-    <h1>sdafsdfgsd</h1>
+<div class="container-fluid m-0 page_header p-5" style="background-image: url('{% static 'imgs/header_background.png' %}')">
+    <p class="m-0">
+        <a href="" class="text-orange hover-white">Home</a>
+        >
+        <a href="" class="text-orange hover-white">Listing</a>
+    </p>
+    <h3>Our Listings</h3>
+</div>
+
+
+<div class="row mx-0 my-5 d-flex justify-content-center">
+    <div class="listing_card col-xl-10 p-0">
+        <div class="row m-0 d-flex justify-content-center">
+            <div class="col-xl-3 listing_card_img p-0" style="background-image: url('{% static 'imgs/listing_pic.png' %}')">
+                <!-- Start: price tag -->
+                <button class="btn btn-orange listing_price_tag">
+                    <div class="text-white col-xl-12 p-0 fw-700 info_row">
+                        $ 39,990
+                        <span class="fw-500">/month</span>
+                    </div>
+                </button>
+                <!-- End: price tag -->
+            </div>
+            <div class="col-xl-9 px-4 py-3">
+                <h3>Hatir Villa</h3>
+                <div class="row m-0 p-0 fw-400 text-black">
+                    <img src="{% static 'icons/location_black.png' %}" class="mr-2 mt-1" style="height: 20px;">
+                    <p class="mt-1 fs-15">1/b/2 Adabor, Dhaka</p>
+                </div>
+                <!-- Need to add ... for long description -->
+                <div class="fs-14">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                </div>
+                <h6 class="fw-600 mt-3">
+                    Facilities-
+                </h6>
+                <!-- start: all facilities -->
+                <div class="row m-0">
+                    <!-- start: a single facility -->
+                    <div class="col-xl-4 p-0">
+                        <div class="row m-0">
+                            <i class="fa fa-check-square mt-1 mr-2"></i>
+                            Hospital
+                        </div>
+                    </div>
+                    <!-- end: a single facility -->
+                    <!-- start: a single facility -->
+                    <div class="col-xl-4 p-0">
+                        <div class="row m-0">
+                            <i class="fa fa-check-square mt-1 mr-2"></i>
+                            Shopping mall
+                        </div>
+                    </div>
+                    <!-- end: a single facility -->
+                    <!-- start: a single facility -->
+                    <div class="col-xl-4 p-0">
+                        <div class="row m-0">
+                            <i class="fa fa-check-square mt-1 mr-2"></i>
+                            Garage
+                        </div>
+                    </div>
+                    <!-- end: a single facility -->
+                    <!-- start: a single facility -->
+                    <div class="col-xl-4 p-0">
+                        <div class="row m-0">
+                            <i class="fa fa-check-square mt-1 mr-2"></i>
+                            Fire Service
+                        </div>
+                    </div>
+                    <!-- end: a single facility -->
+                    <!-- start: a single facility -->
+                    <div class="col-xl-4 p-0">
+                        <div class="row m-0">
+                            <i class="fa fa-check-square mt-1 mr-2"></i>
+                            School
+                        </div>
+                    </div>
+                    <!-- end: a single facility -->
+                    <!-- start: a single facility -->
+                    <div class="col-xl-4 p-0">
+                        <div class="row m-0">
+                            <i class="fa fa-check-square mt-1 mr-2"></i>
+                            Security
+                        </div>
+                    </div>
+                    <!-- end: a single facility -->
+                </div>
+                <!-- end: all facilities -->
+                <!-- start: room numbers -->
+                <div class="row mx-0 mt-4">
+                    <div class="col-xl-3 p-0">
+                        <div class="row m-0">
+                            <img src="{% static 'icons/bedroom.png' %}" style="height: 16px;" class="mr-3 mt-1">
+                            <p>5 Bedroom</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 p-0">
+                        <div class="row m-0">
+                            <img src="{% static 'icons/living.png' %}" style="height: 20px;" class="mr-3">
+                            <p>1 Living</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 p-0">
+                        <div class="row m-0">
+                            <img src="{% static 'icons/dinning.png' %}" style="height: 18px;" class="mr-3 mt-1">
+                            <p>1 Dinning</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 p-0">
+                        <div class="row m-0">
+                            <img src="{% static 'icons/bathroom.png' %}" style="height: 18px;" class="mr-3">
+                            <p>1 Bathroom</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end: room numbers -->
+                <a href="#" class="btn btn-outline-dark text-black fw-400 px-4">GO TO DETAILS</a>
+            </div>
+        </div>
+    </div>
 </div>
 
 
 
-
-
-<div style="height: 600px;"></div>
+<div style="height: 60px;"></div>
 
 
 {% endblock %}
