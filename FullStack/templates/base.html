@@ -36,6 +36,9 @@
   	<!-- google font link -->
   	<link href='https://fonts.googleapis.com/css?family=Open Sans:100,200,300,400,500,600,700,800,900|Ubuntu:100,200,300,400,500,600,700,800,900' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900|Ubuntu:100,200,300,400,500,600,700,800,900' rel='stylesheet'>
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100;0,8..144,200;0,8..144,300;0,8..144,400;0,8..144,500;0,8..144,600;0,8..144,700;0,8..144,800;0,8..144,900;1,8..144,100;1,8..144,200;1,8..144,300;1,8..144,400;1,8..144,500;1,8..144,600;1,8..144,700;1,8..144,800;1,8..144,900&display=swap" rel="stylesheet">
+
 
   	<!-- custom css link -->
   	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
@@ -44,7 +47,7 @@
   </head>
   <body>
     
-    <div class="row m-0 top_nav">
+    <div class="row m-0 top_nav" id="topnav">
 		<div class="row m-0 ml-auto mr-5 pt-2 top_nav_ico_grp">
 			<img src="{% static 'icons/ico_phone.png' %}" alt="" class="mt-1 mr-3 top_nav_ico">
 			<p class="top_nav_text">+88 01752 452189</p>
@@ -56,7 +59,7 @@
     </div>
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top dream_nav px-4">
-		<a class="navbar-brand" href="#">
+		<a class="navbar-brand" href="{% url 'app:index' %}">
 			<img src="{% static 'icons/logo.png' %}" class="ml-3 navbar_logo">
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,7 +72,7 @@
 					<a class="nav-link" href="{% url 'app:index' %}">Home <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">About Us</a>
+					<a class="nav-link" href="{% url 'app:index' %}#about">About Us</a>
 				</li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -83,17 +86,17 @@
 					</div>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Agents</a>
+					<a class="nav-link" href="{% url 'app:agents' %}">Agents</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Contact Us</a>
+					<a class="nav-link" href="{% url 'app:index' %}#contact">Contact Us</a>
 				</li>
 			</ul>
 			<ul class="navbar-nav mr-3">
-				<button class="btn btn-outline-dark my-2 px-4 my-sm-0 mx-1">
+				<a href="{% url 'app:index' %}#topnav" class="btn btn-outline-dark my-2 px-4 my-sm-0 mx-1">
 					<i class="fa fa-search pr-1"></i>
 					Search
-				</button>
+				</a>
 				<button class="btn btn-orange my-2 px-4 my-sm-0 mx-1" data-toggle="modal" data-target="#loginModal">
 					<i class="fa fa-address-book pr-1"></i>
 					Login
@@ -151,46 +154,53 @@
 				</div>
 				<div class="modal-body m-0" style="width: 85% !important;">
 					<img src="{% static 'icons/logo.png' %}" class="img-fluid d-flex mx-auto pb-2">
-					<h5 class="fw-400 text-center pt-4 m-0">Welcome to Dream Lodging!</h5>
-					<p class="fw-300 text-center m-1 p-0">Please fill up the form to login</p>
+					<h5 class="fw-600 text-center pt-4 m-0">Registration Section</h5>
 					<form class="my-5" method="">
 						{% csrf_token %}
 						<div class="row m-0 p-0">
-							<div class="form-group col-xl-7 p-0 mx-auto">
-								<input type="text" class="form-control" name="username" placeholder="Enter Username">
+							<div class="form-group col-xl-6 p-0 mx-auto">
+								<input type="text" class="form-control" name="username" placeholder="Your Full Name">
 							</div>
-							<div class="form-group col-xl-4 p-0 mx-auto">
+							<div class="form-group col-xl-5 p-0 mx-auto">
+								<input type="password" class="form-control" name="password" placeholder="Create A New Password">
+							</div>
+							<div class="form-group col-xl-6 p-0 mx-auto">
+								<input type="text" class="form-control" name="phone" placeholder="Enter Phone No">
+							</div>
+							<div class="form-group col-xl-5 p-0 mx-auto">
+								<input type="email" class="form-control" name="email" placeholder="Enter Email">
+							</div>
+							<div class="form-group col-xl-8 p-0 mx-auto">
+								<input type="text" class="form-control" name="fullname" placeholder="Your Full Name">
+							</div>
+							<div class="form-group col-xl-3 p-0 mx-auto">
 								<select name="user_type" class="form-control">
 									<option selected>Renter</option>
 									<option>Agent</option>
 								</select>
 							</div>
+							<div class="form-group col-xl-8 p-0 mx-auto">
+								<input type="text" class="form-control" name="job" placeholder="Your Role">
+							</div>
+							<div class="form-group col-xl-3 p-0 mx-auto">
+								<input type="number" class="form-control" name="age" placeholder="Your Age">
+							</div>
+
+							<!-- Social Media Link
+							<div class="form-group col-xl-3 p-0 mx-auto">
+								<input type="text" class="form-control" name="facebook" placeholder="facebook">
+							</div>
+							<div class="form-group col-xl-3 p-0 mx-auto">
+								<input type="text" class="form-control" name="twitter" placeholder="twitter">
+							</div>
+							<div class="form-group col-xl-3 p-0 mx-auto">
+								<input type="text" class="form-control" name="linkedin" placeholder="linkedin">
+							</div>
+							<div class="form-group col-xl-3 p-0 mx-auto">
+								<input type="text" class="form-control" name="website" placeholder="website">
+							</div>
+							-->
 						</div>
-						<div class="row m-0 p-0">
-							<div class="form-group col-xl-7 p-0 mx-auto">
-								<input type="text" class="form-control" name="phone" placeholder="Enter Phone No">
-							</div>
-							<div class="form-group col-xl-4 p-0 mx-auto">
-								<select name="gender" class="form-control">
-									<option selected>Male</option>
-									<option>Female</option>
-								</select>
-							</div>
-						</div>
-						<div class="row m-0 p-0">
-							<div class="form-group col-xl-6 p-0 mx-auto">
-								<input type="text" class="form-control" name="address" placeholder="Enter Address">
-							</div>
-							<div class="form-group col-xl-5 p-0 mx-auto">
-								<input type="email" class="form-control" name="email" placeholder="Enter Email">
-							</div>
-						</div>
-						<div class="row m-0 p-0">
-							<div class="form-group col-xl-11 p-0 ml-2">
-								<input type="password" class="form-control" name="password" placeholder="Create A New Password">
-							</div>
-						</div>
-						
 						
 						<p class="fw-500 cursor_hand" data-toggle="modal" data-target="#loginModal" data-dismiss="modal" aria-label="Close">
 							Already have an account? 
@@ -212,15 +222,11 @@
 
 
 
-
-
-
-
     {% block content %}
     
     {% endblock %}
 
-	<div class="row m-0 dream_footer d-flex justify-content-center">
+	<div class="row m-0 dream_footer d-flex justify-content-center" id="contact">
 		<div class="col-xl-3 col-md-6 col-sm-8" style="min-height: 300px;">
 			<h3>Contact Us</h3>
 			<ul class="footer_list my-4 px-2">

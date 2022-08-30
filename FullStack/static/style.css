@@ -8,6 +8,18 @@ body{
 }
 
 
+.font_Josefin{
+    font-family: "Josefin Sans",sans-serif;
+}
+
+.font_Commissioner{
+    font-family: "Commissioner",sans-serif;
+}
+
+.font_Roboto{
+    font-family: 'Roboto Serif', serif;
+}
+
 
 /* custome css repleceted from bootstrap */
 .bg-orange{
@@ -36,6 +48,10 @@ body{
 
 .text-black{
     color: black;
+}
+
+.text-upper{
+    text-transform: uppercase;
 }
 
 
@@ -110,6 +126,10 @@ a{
     font-size: 12px;
 }
 
+.fs-13{
+    font-size: 13px;
+}
+
 .fs-14{
     font-size: 14px;
 }
@@ -134,7 +154,17 @@ a{
     padding-right: 2rem !important;
 }
 
+.prx-4{
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+}
+
 .px-45{
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+}
+
+.prx-45{
     padding-left: 2rem !important;
     padding-right: 2rem !important;
 }
@@ -471,11 +501,6 @@ a{
 
 
 
-
-
-
-
-
 /* Agent card */
 .agent_card img{
     width: 210px;
@@ -544,10 +569,71 @@ a{
 
 
 
-/* Start: Listing Sajol css */
+/* profile css */
+.lightgrey{
+    background-color: #f7f8f8;
+}
 
 
-/* End: Listing Sajol css */
+
+.profile_pic{
+    height: 520px;
+    width: 100%;
+    background-size: auto auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.profile_description{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile_points{
+    border-top: 1px solid #D2D4D5;
+    border-bottom: 1px solid #D2D4D5;
+    letter-spacing: 2px;
+    font-size: 12px;
+    color: #52555a;
+}
+
+.profile_tag{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #28292c;
+    color: white;
+    height: 60px;
+    width: 240px;
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile_tag img{
+    height: 20px;
+    width: auto;
+}
+
+.profile_social img{
+    width: 30px;
+    height: 30px;
+    opacity: 0.7;
+}
+
+.profile_social img:hover{
+    transform: scale(0.9);
+    opacity: 1;
+}
+
+.profile_about{
+    color: #52555A;
+}
+
 
 
 
@@ -589,6 +675,14 @@ a{
     }
     .about_pic{
         display: none;
+    }
+    .prx-45{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    .prx-4{
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
     }
     
 

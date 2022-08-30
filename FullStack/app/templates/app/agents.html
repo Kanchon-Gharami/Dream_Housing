@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid m-0 page_header p-5" style="background-image: url('{% static 'imgs/header_background.png' %}')">
+    <p class="m-0">
+        <a href="{% url 'app:index' %}" class="text-orange hover-white">Home</a>
+        >
+        <a href="#" class="text-white hover-white">Agent</a>
+    </p>
+    <h3>Our Agents</h3>
+</div>
+
+<div class="row mx-0 my-5">
+    <!-- Start: Agent Card -->
+    <div class="agent_card my-3 mx-auto">
+        <img src="{% static 'imgs/agent.png' %}" class="img-fluid">
+        <h6 class="text-center mt-2 p-0 fw-600">Daniel Jhon Wick</h6>
+        <p class="text-center mb-2 p-0">Renowned Agent</p>
+        <div class="row m-0 d-flex justify-content-center">
+            <a href="#" class="btn btn-xl btn-orange px-4">View Listing</a>
+        </div>
+    </div>
+    <!-- End: Agent Card -->
+    <!-- Start: Agent Card -->
+    <div class="agent_card my-3 mx-auto">
+        <img src="{% static 'imgs/agent.png' %}" class="img-fluid">
+        <h6 class="text-center mt-2 p-0 fw-600">Daniel Jhon Wick</h6>
+        <p class="text-center mb-2 p-0">Renowned Agent</p>
+        <div class="row m-0 d-flex justify-content-center">
+            <a href="#" class="btn btn-xl btn-orange px-4">View Listing</a>
+        </div>
+    </div>
+    <!-- End: Agent Card -->
+    <!-- Start: Agent Card -->
+    <div class="agent_card my-3 mx-auto">
+        <img src="{% static 'imgs/agent.png' %}" class="img-fluid">
+        <h6 class="text-center mt-2 p-0 fw-600">Daniel Jhon Wick</h6>
+        <p class="text-center mb-2 p-0">Renowned Agent</p>
+        <div class="row m-0 d-flex justify-content-center">
+            <a href="#" class="btn btn-xl btn-orange px-4">View Listing</a>
+        </div>
+    </div>
+    <!-- End: Agent Card -->
+    <!-- Start: Agent Card -->
+    <div class="agent_card my-3 mx-auto">
+        <img src="{% static 'imgs/agent.png' %}" class="img-fluid">
+        <h6 class="text-center mt-2 p-0 fw-600">Daniel Jhon Wick</h6>
+        <p class="text-center mb-2 p-0">Renowned Agent</p>
+        <div class="row m-0 d-flex justify-content-center">
+            <a href="#" class="btn btn-xl btn-orange px-4">View Listing</a>
+        </div>
+    </div>
+    <!-- End: Agent Card -->
+    <!-- Start: Agent Card -->
+    <div class="agent_card my-3 mx-auto">
+        <img src="{% static 'imgs/agent.png' %}" class="img-fluid">
+        <h6 class="text-center mt-2 p-0 fw-600">Daniel Jhon Wick</h6>
+        <p class="text-center mb-2 p-0">Renowned Agent</p>
+        <div class="row m-0 d-flex justify-content-center">
+            <a href="#" class="btn btn-xl btn-orange px-4">View Listing</a>
+        </div>
+    </div>
+    <!-- End: Agent Card -->
+</div>
+
+
+
+<div style="height: 60px;"></div>
+
+
+{% endblock %}

@@ -7,9 +7,9 @@
 
 <div class="container-fluid m-0 page_header p-5" style="background-image: url('{% static 'imgs/header_background.png' %}')">
     <p class="m-0">
-        <a href="" class="text-orange hover-white">Home</a>
+        <a href="{% url 'app:index' %}" class="text-orange hover-white">Home</a>
         >
-        <a href="" class="text-orange hover-white">Listing</a>
+        <a href="#" class="text-white hover-white">Listing</a>
     </p>
     <h3>Our Listings</h3>
 </div>
@@ -37,6 +37,7 @@
                 <!-- Need to add ... for long description -->
                 <div class="fs-14">
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                    
                 </div>
                 <h6 class="fw-600 mt-3">
                     Facilities-

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="bg-lightgrey">
+    <div class="row m-0 py-5 px-2 d-flex justify-content-center">
+        <div class="col-xl-4 col-md-6 mx-2 profile_pic" style="background-image: url('{% static 'imgs/profile.jpg' %}')">
+            <div class="profile_tag">
+                <div class="row m-0">
+                    <img src="{% static 'icons/profile_active_ico.png' %}" class="mt-1 mr-3">
+                    Renter
+                </div>                
+            </div>
+        </div>
+        <div class="col-xl-5 mx-2 profile_description font_Commissioner">
+            <h3 class="fw-800">Viktoria Freeman</h3>
+            <p>Software Engineer</p>
+            <div class="profile_points my-4 py-3">
+                <div class="row m-0 pt-2">
+                    <p class="fw-800 font_Josefin text-upper">JOINED:</p>
+                    <p class="fw-400 ml-auto fs-14">May 2017</p>
+                </div>
+                <div class="row m-0">
+                    <p class="fw-800 font_Josefin text-upper">Age:</p>
+                    <p class="fw-400 ml-auto fs-14">32 Years</p>
+                </div>
+                <div class="row m-0">
+                    <p class="fw-800 font_Josefin text-upper">Phone No:</p>
+                    <p class="fw-400 ml-auto fs-14">+88 01812345678</p>
+                </div>
+                <div class="row m-0">
+                    <p class="fw-800 font_Josefin text-upper">EMAIL:</p>
+                    <p class="fw-400 ml-auto fs-14">quarty.inbox@mail.com</p>
+                </div>
+            </div>
+            <div class="row m-0">
+                <a href="#" class="profile_social mx-2">
+                    <img src="{% static 'icons/facebook.png' %}">
+                </a>
+                <a href="#" class="profile_social mx-2">
+                    <img src="{% static 'icons/twitter.png' %}">
+                </a>
+                <a href="#" class="profile_social mx-2">
+                    <img src="{% static 'icons/linkedin.png' %}">
+                </a>
+                <a href="#" class="profile_social mx-2">
+                    <img src="{% static 'icons/info.png' %}">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid my-5">
+        <div class="row m-0 prx-4 d-flex justify-content-center">
+            <div class="col-xl-10 prx-45">
+                <h4 class="fw-800 my-3">About Viktoria Freeman</h4>
+                <p class="profile_about">
+                    Organised and reliable, Viktoria is driven to integrate aesthetics with highly functional and exciting interior spaces. Her experience covers a broad range of project types and she works tirelessly to ensure that projects run smoothly from concept to completion. Viktoria is currently undertaking her Masters in Urban Design.
+                    <br><br>
+                    A global traveler, Viktoria has enjoyed vacations far and wide. When it comes to design, Viktoria cites Interior designer India Mahdavi as one of her biggest inspirations. Her clever use of colour, texture, and artworks combine to provide an endless source of inspiration.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container-fluid my-5">
+        <div class="row m-0 prx-4 d-flex justify-content-center">
+            <div class="col-xl-10 prx-45">
+                <h4 class="fw-800 my-3">All Attatched Listing</h4>
+                <!-- Start: attatched Listing -->
+                <div class="row m-0 d-flex justify-content-center">
+                    <!-- start: Dream_Card-->
+                    <a href="#">
+                        <div class="dream_card mx-4">
+                            <div class="dream_card_img" style="background-image: url('{% static 'imgs/card_pic.png' %}');">
+                                <div class="non_hover_content">
+                                    <div class="tl_tag bg-orange d-flex justify-content-center">
+                                        Hatir Vila
+                                    </div>
+                                    <div class="row m-0 card_info py-3">
+                                        <div class="text-orange col-xl-12 p-0 fw-700 info_row">
+                                            $ 39,990
+                                            <span class="fw-500">/month</span>
+                                        </div>
+                                        <div class="fw-200 text-white col-xl-12 p-0">
+                                            <img src="{% static 'icons/Icon material-location-on.png' %}" class="mr-1">
+                                            1/b/2 Adabor, Dhaka
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="overlay_content">
+                                    <p>Hatir Vila</p>
+                                    <p class="fw-800">$ 39,990</p>
+                                    <button class="btn btn-orange my-1 px-4">view details</button>
+                                    <img class="d-flex my-2" src="{% static 'icons/card_ico.png' %}" style="width: 30px; height: 30px;">
+                                    <p class="">1/b/2 Adabor, Dhaka</p>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- End: Dream_Card-->
+                    <!-- start: Dream_Card-->
+                    <a href="#">
+                        <div class="dream_card mx-4">
+                            <div class="dream_card_img" style="background-image: url('{% static 'imgs/card_pic.png' %}');">
+                                <div class="non_hover_content">
+                                    <div class="tl_tag bg-orange d-flex justify-content-center">
+                                        Hatir Vila
+                                    </div>
+                                    <div class="row m-0 card_info py-3">
+                                        <div class="text-orange col-xl-12 p-0 fw-700 info_row">
+                                            $ 39,990
+                                            <span class="fw-500">/month</span>
+                                        </div>
+                                        <div class="fw-200 text-white col-xl-12 p-0">
+                                            <img src="{% static 'icons/Icon material-location-on.png' %}" class="mr-1">
+                                            1/b/2 Adabor, Dhaka
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="overlay_content">
+                                    <p>Hatir Vila</p>
+                                    <p class="fw-800">$ 39,990</p>
+                                    <button class="btn btn-orange my-1 px-4">view details</button>
+                                    <img class="d-flex my-2" src="{% static 'icons/card_ico.png' %}" style="width: 30px; height: 30px;">
+                                    <p class="">1/b/2 Adabor, Dhaka</p>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- End: Dream_Card-->
+                    <!-- start: Dream_Card-->
+                    <a href="#">
+                        <div class="dream_card mx-4">
+                            <div class="dream_card_img" style="background-image: url('{% static 'imgs/card_pic.png' %}');">
+                                <div class="non_hover_content">
+                                    <div class="tl_tag bg-orange d-flex justify-content-center">
+                                        Hatir Vila
+                                    </div>
+                                    <div class="row m-0 card_info py-3">
+                                        <div class="text-orange col-xl-12 p-0 fw-700 info_row">
+                                            $ 39,990
+                                            <span class="fw-500">/month</span>
+                                        </div>
+                                        <div class="fw-200 text-white col-xl-12 p-0">
+                                            <img src="{% static 'icons/Icon material-location-on.png' %}" class="mr-1">
+                                            1/b/2 Adabor, Dhaka
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="overlay_content">
+                                    <p>Hatir Vila</p>
+                                    <p class="fw-800">$ 39,990</p>
+                                    <button class="btn btn-orange my-1 px-4">view details</button>
+                                    <img class="d-flex my-2" src="{% static 'icons/card_ico.png' %}" style="width: 30px; height: 30px;">
+                                    <p class="">1/b/2 Adabor, Dhaka</p>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- End: Dream_Card-->
+                </div>
+                <!-- End: attatched Listing -->
+            </div>
+        </div>
+    </div>
+
+    <div style="height: 120px;"></div>
+
+</div>
+
+{% endblock %}

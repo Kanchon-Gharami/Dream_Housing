@@ -9,3 +9,11 @@ def index(request):
 
 def listing(request):
     return render(request, "app/listing.html")
+
+
+def profile(request):
+    return render(request, "app/profile.html")
+
+
+def agents(request):
+    return render(request, "app/agents.html")
