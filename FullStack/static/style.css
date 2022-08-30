@@ -316,11 +316,6 @@ a{
 
 
 
-
-
-
-
-
 /* card css */
 .dream_card{
     height: 400px;
@@ -484,6 +479,35 @@ a{
     width: 80px;
     height: 80px;
 }
+
+
+
+
+
+/* page header */
+.page_header{
+    height: 155px;
+    background-size: 100% auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
