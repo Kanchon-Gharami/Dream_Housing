@@ -3,6 +3,7 @@ from django.contrib import admin
 from app.models import *
 # Register your models here.
 
+<<<<<<< HEAD
 # admin.site.register(MyCustomUser)
 # admin.site.register(Apartment)
 
@@ -46,3 +47,7 @@ def customerRrequired(function=None, redirect_field_name=REDIRECT_FIELD_NAME, lo
     return actual_decorator
     
 '''
+=======
+admin.site.register(MyCustomUser)
+admin.site.register(Apartment)
+>>>>>>> 3933403d5ad6432fb56965e756d0b9856aa7a5c6
