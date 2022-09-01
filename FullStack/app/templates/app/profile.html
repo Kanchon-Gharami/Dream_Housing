@@ -16,7 +16,12 @@
         </div>
         <div class="col-xl-5 mx-2 profile_description font_Commissioner">
             <h3 class="fw-800">Viktoria Freeman</h3>
-            <p>Software Engineer</p>
+            <div class="row m-0">
+                <p>Software Engineer</p>
+                <a href="#" class="ml-auto hover_scale-9">
+                    <i class="fa fa-pencil text-grey fs-22"></i>
+                </a>
+            </div>
             <div class="profile_points my-4 py-3">
                 <div class="row m-0 pt-2">
                     <p class="fw-800 font_Josefin text-upper">JOINED:</p>
@@ -65,12 +70,22 @@
         </div>
     </div>
 
-
+    
 
     <div class="container-fluid my-5">
         <div class="row m-0 prx-4 d-flex justify-content-center">
             <div class="col-xl-10 prx-45">
-                <h4 class="fw-800 my-3">All Attatched Listing</h4>
+                <div class="row m-0">
+                    <div class="col-xl-8 p-0">
+                        <h4 class="fw-800 my-3">All Attatched Listing</h4>
+                    </div>
+                    <div class="col-xl-4 p-0">
+                        <a href="{% url 'app:add_apartment' %}" class="btn btn-sm btn-orange float-right mt-3 px-3">
+                            <i class="fa fa-plus mx-1"></i>
+                            Add Items
+                        </a>
+                    </div>
+                </div>
                 <!-- Start: attatched Listing -->
                 <div class="row m-0 d-flex justify-content-center">
                     <!-- start: Dream_Card-->

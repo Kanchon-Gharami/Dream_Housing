@@ -8,5 +8,8 @@ urlpatterns = [
     path('listing/', listing, name='listing'),
     path('profile/', profile, name='profile'),
     path('agents/', agents, name='agents'),
+    path('apartment/', apartment, name='apartment'),
+    path('add_apartment/', add_apartment, name='add_apartment'),
+    path('registration/', registration, name='registration'),
 
 ]

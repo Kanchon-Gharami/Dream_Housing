@@ -146,6 +146,18 @@ a{
     font-size: 18px;
 }
 
+.fs-20{
+    font-size: 20px;
+}
+
+.fs-22{
+    font-size: 22px;
+}
+
+.fs-24{
+    font-size: 24px;
+}
+
 .pl-45{
     padding-left: 2rem !important;
 }
@@ -634,9 +646,19 @@ a{
     color: #52555A;
 }
 
+.hover_scale-9:hover{
+    transform: scale(0.95);
+}
 
+.room_info{
+    border-top: 1px solid #C5C7C8;
+    border-bottom: 1px solid #C5C7C8;
 
+}
 
+.facility_ico{
+    height: 50px;
+}
 
 
 

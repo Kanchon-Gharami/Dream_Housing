@@ -126,10 +126,10 @@
 						<div class="form-group">
 							<input type="password" class="form-control" name="password" placeholder="Enter Password">
 						</div>
-						<p class="fw-500 cursor_hand" data-toggle="modal" data-target="#registerModal" data-dismiss="modal" aria-label="Close">
+						<a href="{% url 'app:registration' %}" class="fw-500 cursor_hand">
 							Don't have an account? 
 							<span class="text-orange">Register</span>
-						</p>
+						</a>
 						<div class="row m-0 mt-5 d-flex justify-content-center">
 							<button type="button" class="btn btn-dark mx-1 px-4" data-dismiss="modal">Close</button>
 							<button type="submit" class="btn btn-orange mx-1">Submit</button>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="bg-lightgrey">
+    <div class="row m-0 py-5 px-2 d-flex justify-content-center">
+        <div class="col-xl-4 col-md-6 mx-2 profile_pic" style="background-image: url('{% static 'imgs/a.jpg' %}')">
+            <div class="profile_tag">
+                <div class="row m-0">
+                    <img src="{% static 'icons/profile_active_ico.png' %}" class="mt-1 mr-3">
+                    For Rent
+                </div>                
+            </div>
+        </div>
+        <div class="col-xl-5 mx-2 profile_description font_Commissioner">
+            <h3 class="fw-800">Hatir Villa</h3>
+            <div class="row m-0 p-0 fw-400 text-black">
+                <img src="{% static 'icons/location_black.png' %}" class="mr-2 mt-1" style="height: 20px;">
+                <p class="mt-1 fs-15">1/b/2 Adabor, Dhaka</p>
+                <a href="#" class="ml-auto hover_scale-9">
+                    <i class="fa fa-pencil text-grey fs-22"></i>
+                </a>
+            </div>
+            <div class="profile_points my-4 py-3">
+                <div class="row m-0 pt-2">
+                    <p class="fw-800 font_Josefin text-upper">Apartment ID:</p>
+                    <p class="fw-400 ml-auto fs-14">7WS5RR</p>
+                </div>
+                <div class="row m-0">
+                    <p class="fw-800 font_Josefin text-upper">Building year:</p>
+                    <p class="fw-400 ml-auto fs-14">May 2017</p>
+                </div>
+                <div class="row m-0">
+                    <p class="fw-800 font_Josefin text-upper">Area:</p>
+                    <p class="fw-400 ml-auto fs-14">1400 sq ft</p>
+                </div>
+                <div class="row m-0">
+                    <p class="fw-800 font_Josefin text-upper">Cost:</p>
+                    <p class="fw-600 ml-auto fs-14 text-dark">39,990 /month</p>
+                </div>
+                <div class="row m-0">
+                    <p class="fw-800 font_Josefin text-upper">Agent:</p>
+                    <a href="{% url 'app:profile' %}" class="fw-400 ml-auto fs-14 text-orange">Daniel Jhon Wick</a>
+                </div>
+            </div>
+            <div class="row m-0">
+                <a href="#" class="btn btn-md btn-outline-dark mx-2 my-2 px-45 hover_scale-9" data-toggle="modal" data-target="#pay_a_visit">Pay a Visit</a>
+                <a href="#" class="btn btn-md btn-orange mx-2 my-2 px-4 hover_scale-9" data-toggle="modal" data-target="#booking_successful">Make a Booking</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid my-5">
+        <div class="row m-0 prx-4 d-flex justify-content-center">
+            <div class="col-xl-10 prx-45">
+                <h4 class="fw-800 my-3">About Hatir Villa</h4>
+                <p class="profile_about">
+                    Organised and reliable, Viktoria is driven to integrate aesthetics with highly functional and exciting interior spaces. Her experience covers a broad range of project types and she works tirelessly to ensure that projects run smoothly from concept to completion. Viktoria is currently undertaking her Masters in Urban Design.
+                    <br><br>
+                    A global traveler, Viktoria has enjoyed vacations far and wide. When it comes to design, Viktoria cites Interior designer India Mahdavi as one of her biggest inspirations. Her clever use of colour, texture, and artworks combine to provide an endless source of inspiration.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid my-5">
+        <div class="row m-0 prx-4 d-flex justify-content-center">
+            <div class="col-xl-10 room_info prx-45 py-4">
+                <div class="row m-0">
+                    <div class="col-xl-3 col-sm-6 mx-auto">
+                        <h2 class="fw-700">5</h2>
+                        <p class="text-upper fw-600 fs-13" style="letter-spacing: 1px;">Numbers of Bedrooms</p>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 mx-auto">
+                        <h2 class="fw-700">1</h2>
+                        <p class="text-upper fw-600 fs-13" style="letter-spacing: 1px;">Numbers of Living Room</p>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 mx-auto">
+                        <h2 class="fw-700">1</h2>
+                        <p class="text-upper fw-600 fs-13" style="letter-spacing: 1px;">Numbers of Dinning</p>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 mx-auto">
+                        <h2 class="fw-700">1</h2>
+                        <p class="text-upper fw-600 fs-13" style="letter-spacing: 1px;">Numbers of Bathroom</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid my-5">
+        <div class="row m-0 prx-4 d-flex justify-content-center">
+            <div class="col-xl-10 prx-45">
+                <h4 class="fw-800 my-3">Facilities</h4>
+                <div class="row m-0 py-4">
+                    <div class="col-xl-4 col-sm-6 mx-auto my-4">
+                        <img src="{% static 'icons/garage.png' %}" class="facility_ico">
+                        <p class="text-upper fw-700 fs-14 my-2" style="letter-spacing: 1px;">Garage Avaiavle</p>
+                    </div>
+                    <div class="col-xl-4 col-sm-6 mx-auto my-4">
+                        <img src="{% static 'icons/guard.png' %}" class="facility_ico">
+                        <p class="text-upper fw-700 fs-14 my-2" style="letter-spacing: 1px;">Fulltime Watchman</p>
+                    </div>
+                    <div class="col-xl-4 col-sm-6 mx-auto my-4">
+                        <img src="{% static 'icons/gardening.png' %}" class="facility_ico">
+                        <p class="text-upper fw-700 fs-14 my-2" style="letter-spacing: 1px;">Attatched Garden</p>
+                    </div>
+                    <div class="col-xl-4 col-sm-6 mx-auto my-4">
+                        <img src="{% static 'icons/swimming-pool.png' %}" class="facility_ico">
+                        <p class="text-upper fw-700 fs-14 my-2" style="letter-spacing: 1px;">Attatched swimming-pool</p>
+                    </div>
+                    <div class="col-xl-4 col-sm-6 mx-auto my-4">
+                        <img src="{% static 'icons/hospital.png' %}" class="facility_ico">
+                        <p class="text-upper fw-700 fs-14 my-2" style="letter-spacing: 1px;">Nearby Hospital</p>
+                    </div>
+                    <div class="col-xl-4 col-sm-6 mx-auto my-4">
+                        <img src="{% static 'icons/shopping-mall.png' %}" class="facility_ico">
+                        <p class="text-upper fw-700 fs-14 my-2" style="letter-spacing: 1px;">Nearby Shopping Mall</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="height: 120px;"></div>
+
+</div>
+
+
+
+  
+<!-- Start: Pay A Visit Modal -->
+<div class="modal fade" id="pay_a_visit" tabindex="-1" role="dialog" aria-labelledby="pay_a_visitLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="booking_successfulLabel">Schedule A Date For Visit</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="" method="post">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="form-group mb-2">
+                        <label class="sr-only">Pick a date</label>
+                        <input type="date" class="form-control" name="visit_date" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Confirm</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End: Pay A Visit Modal -->
+
+
+<!-- Start: Booking Successfull Modal -->
+<div class="modal fade" id="booking_successful" tabindex="-1" role="dialog" aria-labelledby="booking_successfulLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pay_a_visitLabel">Your Booking Successyfully Completed</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>We will inform you with update notification. Please wait until our agent approve your booking request.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End: Pay A Visit Modal -->
+
+
+
+{% endblock %}

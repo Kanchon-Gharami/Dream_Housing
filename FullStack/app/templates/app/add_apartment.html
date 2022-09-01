@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid bg-light py-5">
+    <div class="row m-0 d-flex justify-content-center">
+        <div class="col-xl-10 bg-white py-4">
+            <h5 class="fw-600 text-center pt-4 m-0">Add new Apartment</h5>
+            <p class="text-center text-orange fw-500 pt-2">Error: Error will appare here</p>
+            <form class="my-5" method="">
+                {% csrf_token %}
+                <div class="row m-0 p-0">
+                    <div class="form-group col-xl-8 p-0 mx-auto">
+                        <input type="text" class="form-control" name="name" placeholder="Appartment Name" required>
+                    </div>
+                    <div class="form-group col-xl-3 p-0 mx-auto">
+                        <select name="type" class="form-control" required>
+                            <option selected disabled>Catagory</option>
+                            <option>Rent</option>
+                            <option>Sale</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-xl-6 p-0 mx-auto">
+                        <input type="text" class="form-control" name="location" placeholder="Appartment Location" required>
+                    </div>
+                    <div class="form-group col-xl-5 p-0 mx-auto">
+                        <input type="number" class="form-control" name="price" placeholder="Asking Price" required>
+                    </div>
+                    <div class="form-group col-xl-3 p-0 mx-auto">
+                        <input type="number" class="form-control" name="area" placeholder="Total Area (sq. feet)" required>
+                    </div>
+                    <div class="form-group col-xl-4 p-0 mx-auto">
+                        <input type="text" onfocus="(this.type='date')" class="form-control" name="building_year" placeholder="Building Year" required>
+                    </div>
+                    <div class="custom-file col-xl-4 p-0 mx-auto">
+                        <input type="file" class="custom-file-input" name="img" accept="image/png, image/jpeg" required>
+                        <label class="custom-file-label" >Apartment Image (Potrait)</label>
+                    </div>
+                </div>
+                <div class="row mx-0 mt-4 prx-4">
+                    <h5 class="fw-600 text-orange">About</h5>
+                </div>
+                <div class="row mx-0">
+                    <div class="form-group col-xl-12 py-0 prx-4 mx-auto">
+                        <textarea class="form-control" name="about" rows="6" placeholder="Write Something About This Apartment" required></textarea>
+                    </div> 
+                </div>
+                
+                <div class="row mx-0 mt-4 px-4">
+                    <h5 class="fw-600 text-orange">Features</h5>
+                </div>
+                
+                <div class="row mx-0 mb-4 d-flex justify-content-center">
+                    <div class="form-group col-md-3 p-0 mx-auto">
+                        <input type="number" class="form-control" name="bedroom" placeholder="No of Bedroom" required>
+                    </div>
+                    <div class="form-group col-md-3 p-0 mx-auto">
+                        <input type="number" class="form-control" name="living" placeholder="No of Living-Room" required>
+                    </div>
+                    <div class="form-group col-md-2 p-0 mx-auto">
+                        <input type="number" class="form-control" name="dinning" placeholder="No of Dinning" required>
+                    </div>
+                    <div class="form-group col-md-2 p-0 mx-auto">
+                        <input type="number" class="form-control" name="bathroom" placeholder="No of bathroom" required>
+                    </div>
+                </div>
+                <div class="row mx-0 mt-4 px-4">
+                    <h5 class="fw-600 text-orange">Facilities</h5>
+                </div>
+                <div class="row mx-0 mb-4 px-4 d-flex justify-content-center">
+                    <div class="form-check col-md-4 my-2">
+                        <input class="form-check-input" type="checkbox" name="garage">
+                        <label class="form-check-label">
+                            GARAGE AVAIAVLE
+                        </label>
+                    </div>
+                    <div class="form-check col-md-4 my-2">
+                        <input class="form-check-input" type="checkbox" name="watchman">
+                        <label class="form-check-label">
+                            FULLTIME WATCHMAN
+                        </label>
+                    </div>
+                    <div class="form-check col-md-4 my-2">
+                        <input class="form-check-input" type="checkbox" name="garden">
+                        <label class="form-check-label">
+                            ATTATCHED GARDEN
+                        </label>
+                    </div>
+                    <div class="form-check col-md-4 my-2">
+                        <input class="form-check-input" type="checkbox" name="swimmingpool">
+                        <label class="form-check-label">
+                            ATTATCHED SWIMMING-POOL
+                        </label>
+                    </div>
+                    <div class="form-check col-md-4 my-2">
+                        <input class="form-check-input" type="checkbox" name="hospital">
+                        <label class="form-check-label">
+                            NEARBY HOSPITAL
+                        </label>
+                    </div>
+                    <div class="form-check col-md-4 my-2">
+                        <input class="form-check-input" type="checkbox" name="shoppingmall">
+                        <label class="form-check-label">
+                            NEARBY SHOPPING MALL
+                        </label>
+                    </div>
+                </div>         
+                <div class="row m-0 mt-5 px-4 d-flex justify-content-end">
+                    <a href="{% url 'app:index' %}" class="btn btn-outline-dark mx-1 my-2 px-4" data-dismiss="modal">Back To Home</a>
+                    <button type="submit" class="btn btn-orange mx-1 my-2 px-4">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div style="height: 120px;"></div>
+
+
+
+{% endblock %}

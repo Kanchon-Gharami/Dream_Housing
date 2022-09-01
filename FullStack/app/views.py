@@ -17,3 +17,15 @@ def profile(request):
 
 def agents(request):
     return render(request, "app/agents.html")
+
+
+def apartment(request):
+    return render(request, "app/apartment.html")
+
+
+def registration(request):
+    return render(request, "app/registration.html")
+
+
+def add_apartment(request):
+    return render(request, "app/add_apartment.html")
