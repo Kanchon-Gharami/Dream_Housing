@@ -18,7 +18,10 @@
             <h3 class="fw-800">Viktoria Freeman</h3>
             <div class="row m-0">
                 <p>Software Engineer</p>
-                <a href="#" class="ml-auto hover_scale-9">
+                <a href="#" class="ml-auto hover_scale-9" data-toggle="modal" data-target="#deleteconformationmodal">
+                    <img src="{% static 'icons/trash.png' %}" class="mr-2" style="height: 20px;">
+                </a>
+                <a href="#" class="ml-2 hover_scale-9" style="margin-top: 2px;">
                     <i class="fa fa-pencil text-grey fs-22"></i>
                 </a>
             </div>
@@ -187,5 +190,31 @@
     <div style="height: 120px;"></div>
 
 </div>
+
+
+<!-- Start: Delet Confirm Modal -->
+<div class="modal fade" id="deleteconformationmodal" tabindex="-1" role="dialog" aria-labelledby="deleteconformationmodalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteconformationmodalLabel">Delete Profile</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="modal-body">
+                    Are you sure about delete your profile?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Process Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End: Delet Confirm Modal -->
 
 {% endblock %}
