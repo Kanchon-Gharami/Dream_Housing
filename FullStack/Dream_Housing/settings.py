@@ -70,7 +70,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "Dream_Housing.wsgi.application"
-# AUTH_USER_MODEL = "diagnosis.MyCustomUser"
+AUTH_USER_MODEL = "diagnosis.MyCustomUser"
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
