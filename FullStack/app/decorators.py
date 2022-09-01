@@ -1,16 +1,7 @@
-from django.contrib import admin
-
-from app.models import *
-# Register your models here.
-
-# admin.site.register(MyCustomUser)
-# admin.site.register(Apartment)
-
-
 from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.contrib.auth.decorators import user_passes_test
 
-'''
+
 def superuserRrequired(function=None, redirect_field_name=REDIRECT_FIELD_NAME, login_url="app:index"):
     actual_decorator = user_passes_test(
         lambda u: u.is_active and u.is_superuser,
@@ -44,5 +35,4 @@ def customerRrequired(function=None, redirect_field_name=REDIRECT_FIELD_NAME, lo
     if function:
         return actual_decorator(function)
     return actual_decorator
-    
-'''
+
