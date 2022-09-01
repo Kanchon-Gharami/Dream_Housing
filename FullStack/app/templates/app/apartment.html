@@ -6,19 +6,19 @@
 
 <div class="bg-lightgrey">
     <div class="row m-0 py-5 px-2 d-flex justify-content-center">
-        <div class="col-xl-4 col-md-6 mx-2 profile_pic" style="background-image: url('{% static 'imgs/a.jpg' %}')">
+        <div class="col-xl-4 col-md-6 mx-2 profile_pic" style="background-image: url('{{ this_apartment.img.url }}')">
             <div class="profile_tag">
                 <div class="row m-0">
                     <img src="{% static 'icons/profile_active_ico.png' %}" class="mt-1 mr-3">
-                    For Rent
+                    For {{ this_apartment.type }}
                 </div>                
             </div>
         </div>
         <div class="col-xl-5 mx-2 profile_description font_Commissioner">
-            <h3 class="fw-800">Hatir Villa</h3>
+            <h3 class="fw-800">{{ this_apartment.name }}</h3>
             <div class="row m-0 p-0 fw-400 text-black">
                 <img src="{% static 'icons/location_black.png' %}" class="mr-2 mt-1" style="height: 20px;">
-                <p class="mt-1 fs-15">1/b/2 Adabor, Dhaka</p>
+                <p class="mt-1 fs-15">{{ this_apartment.location }}</p>
                 <a href="#" class="ml-auto hover_scale-9" data-toggle="modal" data-target="#deleteconformationmodal">
                     <img src="{% static 'icons/trash.png' %}" class="mr-2" style="height: 20px;">
                 </a>
@@ -29,23 +29,25 @@
             <div class="profile_points my-4 py-3">
                 <div class="row m-0 pt-2">
                     <p class="fw-800 font_Josefin text-upper">Apartment ID:</p>
-                    <p class="fw-400 ml-auto fs-14">7WS5RR</p>
+                    <p class="fw-400 ml-auto fs-14">{{ this_apartment.pk }}</p>
                 </div>
                 <div class="row m-0">
                     <p class="fw-800 font_Josefin text-upper">Building year:</p>
-                    <p class="fw-400 ml-auto fs-14">May 2017</p>
+                    <p class="fw-400 ml-auto fs-14">{{ this_apartment.building_year }}</p>
                 </div>
                 <div class="row m-0">
                     <p class="fw-800 font_Josefin text-upper">Area:</p>
-                    <p class="fw-400 ml-auto fs-14">1400 sq ft</p>
+                    <p class="fw-400 ml-auto fs-14">{{ this_apartment.area }} sq ft</p>
                 </div>
                 <div class="row m-0">
                     <p class="fw-800 font_Josefin text-upper">Cost:</p>
-                    <p class="fw-600 ml-auto fs-14 text-dark">39,990 /month</p>
+                    <p class="fw-600 ml-auto fs-14 text-dark">{{ this_apartment.price }} /month</p>
                 </div>
                 <div class="row m-0">
                     <p class="fw-800 font_Josefin text-upper">Agent:</p>
-                    <a href="{% url 'app:profile' %}" class="fw-400 ml-auto fs-14 text-orange">Daniel Jhon Wick</a>
+                    {% if agent %}
+                    <a href="{% url 'app:profile' pk=agent.pk %}" class="fw-400 ml-auto fs-14 text-orange">{{ agent.fullname }}</a>
+                    {% endif %}
                 </div>
             </div>
             <div class="row m-0">
@@ -58,11 +60,9 @@
     <div class="container-fluid my-5">
         <div class="row m-0 prx-4 d-flex justify-content-center">
             <div class="col-xl-10 prx-45">
-                <h4 class="fw-800 my-3">About Hatir Villa</h4>
+                <h4 class="fw-800 my-3">About {{ this_apartment.name }}</h4>
                 <p class="profile_about">
-                    Organised and reliable, Viktoria is driven to integrate aesthetics with highly functional and exciting interior spaces. Her experience covers a broad range of project types and she works tirelessly to ensure that projects run smoothly from concept to completion. Viktoria is currently undertaking her Masters in Urban Design.
-                    <br><br>
-                    A global traveler, Viktoria has enjoyed vacations far and wide. When it comes to design, Viktoria cites Interior designer India Mahdavi as one of her biggest inspirations. Her clever use of colour, texture, and artworks combine to provide an endless source of inspiration.
+                    {{ this_apartment.about }}
                 </p>
             </div>
         </div>
@@ -74,19 +74,19 @@
             <div class="col-xl-10 room_info prx-45 py-4">
                 <div class="row m-0">
                     <div class="col-xl-3 col-sm-6 mx-auto">
-                        <h2 class="fw-700">5</h2>
+                        <h2 class="fw-700">{{ this_apartment.bedroom }}</h2>
                         <p class="text-upper fw-600 fs-13" style="letter-spacing: 1px;">Numbers of Bedrooms</p>
                     </div>
                     <div class="col-xl-3 col-sm-6 mx-auto">
-                        <h2 class="fw-700">1</h2>
+                        <h2 class="fw-700">{{ this_apartment.living }}</h2>
                         <p class="text-upper fw-600 fs-13" style="letter-spacing: 1px;">Numbers of Living Room</p>
                     </div>
                     <div class="col-xl-3 col-sm-6 mx-auto">
-                        <h2 class="fw-700">1</h2>
+                        <h2 class="fw-700">{{ this_apartment.dinning }}</h2>
                         <p class="text-upper fw-600 fs-13" style="letter-spacing: 1px;">Numbers of Dinning</p>
                     </div>
                     <div class="col-xl-3 col-sm-6 mx-auto">
-                        <h2 class="fw-700">1</h2>
+                        <h2 class="fw-700">{{ this_apartment.bathroom }}</h2>
                         <p class="text-upper fw-600 fs-13" style="letter-spacing: 1px;">Numbers of Bathroom</p>
                     </div>
                 </div>
@@ -100,30 +100,42 @@
             <div class="col-xl-10 prx-45">
                 <h4 class="fw-800 my-3">Facilities</h4>
                 <div class="row m-0 py-4">
-                    <div class="col-xl-4 col-sm-6 mx-auto my-4">
-                        <img src="{% static 'icons/garage.png' %}" class="facility_ico">
-                        <p class="text-upper fw-700 fs-14 my-2" style="letter-spacing: 1px;">Garage Avaiavle</p>
-                    </div>
-                    <div class="col-xl-4 col-sm-6 mx-auto my-4">
-                        <img src="{% static 'icons/guard.png' %}" class="facility_ico">
-                        <p class="text-upper fw-700 fs-14 my-2" style="letter-spacing: 1px;">Fulltime Watchman</p>
-                    </div>
-                    <div class="col-xl-4 col-sm-6 mx-auto my-4">
-                        <img src="{% static 'icons/gardening.png' %}" class="facility_ico">
-                        <p class="text-upper fw-700 fs-14 my-2" style="letter-spacing: 1px;">Attatched Garden</p>
-                    </div>
-                    <div class="col-xl-4 col-sm-6 mx-auto my-4">
-                        <img src="{% static 'icons/swimming-pool.png' %}" class="facility_ico">
-                        <p class="text-upper fw-700 fs-14 my-2" style="letter-spacing: 1px;">Attatched swimming-pool</p>
-                    </div>
-                    <div class="col-xl-4 col-sm-6 mx-auto my-4">
-                        <img src="{% static 'icons/hospital.png' %}" class="facility_ico">
-                        <p class="text-upper fw-700 fs-14 my-2" style="letter-spacing: 1px;">Nearby Hospital</p>
-                    </div>
-                    <div class="col-xl-4 col-sm-6 mx-auto my-4">
-                        <img src="{% static 'icons/shopping-mall.png' %}" class="facility_ico">
-                        <p class="text-upper fw-700 fs-14 my-2" style="letter-spacing: 1px;">Nearby Shopping Mall</p>
-                    </div>
+                    {% if this_apartment.garage %}
+                        <div class="col-xl-4 col-sm-6 mx-auto my-4">
+                            <img src="{% static 'icons/garage.png' %}" class="facility_ico">
+                            <p class="text-upper fw-700 fs-14 my-2" style="letter-spacing: 1px;">Garage Avaiavle</p>
+                        </div>
+                    {% endif %}
+                    {% if this_apartment.watchman %}
+                        <div class="col-xl-4 col-sm-6 mx-auto my-4">
+                            <img src="{% static 'icons/guard.png' %}" class="facility_ico">
+                            <p class="text-upper fw-700 fs-14 my-2" style="letter-spacing: 1px;">Fulltime Watchman</p>
+                        </div>
+                    {% endif %}
+                    {% if this_apartment.garden %}
+                        <div class="col-xl-4 col-sm-6 mx-auto my-4">
+                            <img src="{% static 'icons/gardening.png' %}" class="facility_ico">
+                            <p class="text-upper fw-700 fs-14 my-2" style="letter-spacing: 1px;">Attatched Garden</p>
+                        </div>
+                    {% endif %}
+                    {% if this_apartment.swimmingpool %}
+                        <div class="col-xl-4 col-sm-6 mx-auto my-4">
+                            <img src="{% static 'icons/swimming-pool.png' %}" class="facility_ico">
+                            <p class="text-upper fw-700 fs-14 my-2" style="letter-spacing: 1px;">Attatched swimming-pool</p>
+                        </div>
+                    {% endif %}
+                    {% if this_apartment.hospital %}
+                        <div class="col-xl-4 col-sm-6 mx-auto my-4">
+                            <img src="{% static 'icons/hospital.png' %}" class="facility_ico">
+                            <p class="text-upper fw-700 fs-14 my-2" style="letter-spacing: 1px;">Nearby Hospital</p>
+                        </div>
+                    {% endif %}
+                    {% if this_apartment.shoppingmall %}
+                        <div class="col-xl-4 col-sm-6 mx-auto my-4">
+                            <img src="{% static 'icons/shopping-mall.png' %}" class="facility_ico">
+                            <p class="text-upper fw-700 fs-14 my-2" style="letter-spacing: 1px;">Nearby Shopping Mall</p>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>

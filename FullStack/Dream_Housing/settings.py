@@ -70,7 +70,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "Dream_Housing.wsgi.application"
-AUTH_USER_MODEL = "diagnosis.MyCustomUser"
+AUTH_USER_MODEL = "app.MyCustomUser"
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -124,7 +124,7 @@ STATIC_ROOT = BASE_DIR / "assets"
 
 # Media files
 MEDIA_ROOT = BASE_DIR / "media"
-MEDIA_URL = "/documents/"
+MEDIA_URL = "/media/"
 
 
 # Default primary key field type

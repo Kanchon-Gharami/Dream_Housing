@@ -34,9 +34,4 @@ def customerRrequired(function=None, redirect_field_name=REDIRECT_FIELD_NAME, lo
     )
     if function:
         return actual_decorator(function)
-<<<<<<< HEAD
-    return actual_decorator
 
-=======
-    return actual_decorator
->>>>>>> 3933403d5ad6432fb56965e756d0b9856aa7a5c6

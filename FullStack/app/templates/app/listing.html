@@ -14,120 +14,119 @@
     <h3>Our Listings</h3>
 </div>
 
-
-<div class="row mx-0 my-5 d-flex justify-content-center">
-    <div class="listing_card col-xl-10 p-0">
-        <div class="row m-0 d-flex justify-content-center">
-            <div class="col-xl-3 listing_card_img p-0" style="background-image: url('{% static 'imgs/listing_pic.png' %}')">
-                <!-- Start: price tag -->
-                <button class="btn btn-orange listing_price_tag">
-                    <div class="text-white col-xl-12 p-0 fw-700 info_row">
-                        $ 39,990
-                        <span class="fw-500">/month</span>
-                    </div>
-                </button>
-                <!-- End: price tag -->
-            </div>
-            <div class="col-xl-9 px-4 py-3">
-                <h3>Hatir Villa</h3>
-                <div class="row m-0 p-0 fw-400 text-black">
-                    <img src="{% static 'icons/location_black.png' %}" class="mr-2 mt-1" style="height: 20px;">
-                    <p class="mt-1 fs-15">1/b/2 Adabor, Dhaka</p>
+{% for i in apartments %}
+    <div class="row mx-0 my-5 d-flex justify-content-center">
+        <div class="listing_card col-xl-10 p-0">
+            <div class="row m-0 d-flex justify-content-center">
+                <div class="col-xl-3 listing_card_img p-0" style="background-image: url('{{ i.img.url }}')">
+                    <!-- Start: price tag -->
+                    <button class="btn btn-orange listing_price_tag">
+                        <div class="text-white col-xl-12 p-0 fw-700 info_row">
+                            $ {{ i.price }}
+                            <span class="fw-500">/month</span>
+                        </div>
+                    </button>
+                    <!-- End: price tag -->
                 </div>
-                <!-- Need to add ... for long description -->
-                <div class="fs-14">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                    
+                <div class="col-xl-9 px-4 py-3">
+                    <h3>{{ i.name }}</h3>
+                    <div class="row m-0 p-0 fw-400 text-black">
+                        <img src="{% static 'icons/location_black.png' %}" class="mr-2 mt-1" style="height: 20px;">
+                        <p class="mt-1 fs-15">{{ i.location }}</p>
+                    </div>
+                    <!-- Need to add ... for long description -->
+                    <div class="fs-14">
+                        {{ i.about }}
+                    </div>
+                    <h6 class="fw-600 mt-3">
+                        Facilities-
+                    </h6>
+                    <!-- start: all facilities -->
+                    <div class="row m-0">
+                        {% if i.garage %}
+                        <div class="col-xl-4 p-0">
+                            <div class="row m-0">
+                                <i class="fa fa-check-square mt-1 mr-2"></i>
+                                Avaiavle Garage
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if i.watchman %}
+                        <div class="col-xl-4 p-0">
+                            <div class="row m-0">
+                                <i class="fa fa-check-square mt-1 mr-2"></i>
+                                Full Time Security
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if i.garden %}
+                        <div class="col-xl-4 p-0">
+                            <div class="row m-0">
+                                <i class="fa fa-check-square mt-1 mr-2"></i>
+                                Attatched Garden
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if i.swimmingpool %}
+                        <div class="col-xl-4 p-0">
+                            <div class="row m-0">
+                                <i class="fa fa-check-square mt-1 mr-2"></i>
+                                Swimming Pool
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if i.hospital %}
+                        <div class="col-xl-4 p-0">
+                            <div class="row m-0">
+                                <i class="fa fa-check-square mt-1 mr-2"></i>
+                                Nearby Hospital
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if i.shoppingmall %}
+                        <div class="col-xl-4 p-0">
+                            <div class="row m-0">
+                                <i class="fa fa-check-square mt-1 mr-2"></i>
+                                Nearby Shopping mall
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <!-- end: all facilities -->
+                    <!-- start: room numbers -->
+                    <div class="row mx-0 mt-4">
+                        <div class="col-xl-3 p-0">
+                            <div class="row m-0">
+                                <img src="{% static 'icons/bedroom.png' %}" style="height: 16px;" class="mr-3 mt-1">
+                                <p>{{ i.bedroom }} Bedroom</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 p-0">
+                            <div class="row m-0">
+                                <img src="{% static 'icons/living.png' %}" style="height: 20px;" class="mr-3">
+                                <p>{{ i.living }} Living</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 p-0">
+                            <div class="row m-0">
+                                <img src="{% static 'icons/dinning.png' %}" style="height: 18px;" class="mr-3 mt-1">
+                                <p>{{ i.dinning }} Dinning</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 p-0">
+                            <div class="row m-0">
+                                <img src="{% static 'icons/bathroom.png' %}" style="height: 18px;" class="mr-3">
+                                <p>{{ i.bathroom }} Bathroom</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: room numbers -->
+                    <a href="{% url 'app:apartment' pk=i.pk %}" class="btn btn-outline-dark text-black fw-400 px-4">GO TO DETAILS</a>
                 </div>
-                <h6 class="fw-600 mt-3">
-                    Facilities-
-                </h6>
-                <!-- start: all facilities -->
-                <div class="row m-0">
-                    <!-- start: a single facility -->
-                    <div class="col-xl-4 p-0">
-                        <div class="row m-0">
-                            <i class="fa fa-check-square mt-1 mr-2"></i>
-                            Hospital
-                        </div>
-                    </div>
-                    <!-- end: a single facility -->
-                    <!-- start: a single facility -->
-                    <div class="col-xl-4 p-0">
-                        <div class="row m-0">
-                            <i class="fa fa-check-square mt-1 mr-2"></i>
-                            Shopping mall
-                        </div>
-                    </div>
-                    <!-- end: a single facility -->
-                    <!-- start: a single facility -->
-                    <div class="col-xl-4 p-0">
-                        <div class="row m-0">
-                            <i class="fa fa-check-square mt-1 mr-2"></i>
-                            Garage
-                        </div>
-                    </div>
-                    <!-- end: a single facility -->
-                    <!-- start: a single facility -->
-                    <div class="col-xl-4 p-0">
-                        <div class="row m-0">
-                            <i class="fa fa-check-square mt-1 mr-2"></i>
-                            Fire Service
-                        </div>
-                    </div>
-                    <!-- end: a single facility -->
-                    <!-- start: a single facility -->
-                    <div class="col-xl-4 p-0">
-                        <div class="row m-0">
-                            <i class="fa fa-check-square mt-1 mr-2"></i>
-                            School
-                        </div>
-                    </div>
-                    <!-- end: a single facility -->
-                    <!-- start: a single facility -->
-                    <div class="col-xl-4 p-0">
-                        <div class="row m-0">
-                            <i class="fa fa-check-square mt-1 mr-2"></i>
-                            Security
-                        </div>
-                    </div>
-                    <!-- end: a single facility -->
-                </div>
-                <!-- end: all facilities -->
-                <!-- start: room numbers -->
-                <div class="row mx-0 mt-4">
-                    <div class="col-xl-3 p-0">
-                        <div class="row m-0">
-                            <img src="{% static 'icons/bedroom.png' %}" style="height: 16px;" class="mr-3 mt-1">
-                            <p>5 Bedroom</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 p-0">
-                        <div class="row m-0">
-                            <img src="{% static 'icons/living.png' %}" style="height: 20px;" class="mr-3">
-                            <p>1 Living</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 p-0">
-                        <div class="row m-0">
-                            <img src="{% static 'icons/dinning.png' %}" style="height: 18px;" class="mr-3 mt-1">
-                            <p>1 Dinning</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 p-0">
-                        <div class="row m-0">
-                            <img src="{% static 'icons/bathroom.png' %}" style="height: 18px;" class="mr-3">
-                            <p>1 Bathroom</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- end: room numbers -->
-                <a href="{% url 'app:apartment' %}" class="btn btn-outline-dark text-black fw-400 px-4">GO TO DETAILS</a>
             </div>
         </div>
     </div>
-</div>
-
+{% endfor %}
 
 
 <div style="height: 60px;"></div>

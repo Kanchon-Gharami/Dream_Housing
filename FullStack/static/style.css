@@ -221,6 +221,18 @@ a{
     margin-top: 1px;
 }
 
+.nav_lgin_ico{
+    height: 20px;
+
+}
+
+.nav_ico_brdr{
+    border-left: 1px solid #C5C7C8;
+    border-right: 1px solid #C5C7C8;
+    
+}
+
+
 .dream_nav{
     box-shadow: 1px 1px 5.3px rgba(0, 0, 0, 0.02),
         3.4px 3.4px 17.9px rgba(0, 0, 0, 0.03),
@@ -587,11 +599,10 @@ a{
 }
 
 
-
 .profile_pic{
     height: 520px;
     width: 100%;
-    background-size: auto auto;
+    background-size: 100% auto;
     background-position: center center;
     background-repeat: no-repeat;
 }
