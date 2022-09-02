@@ -11,7 +11,7 @@
             {% if errors %}
 			    <p class="text-center text-orange fw-500 pt-2">Error: {{errors}}</>
             {% endif %}
-            <form class="my-5" method="POST">
+            <form class="my-5" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="row m-0 p-0">
                     <div class="form-group col-xl-8 p-0 mx-auto">
@@ -37,7 +37,7 @@
                         <input type="text" onfocus="(this.type='date')" class="form-control" name="building_year" placeholder="Building Year" required>
                     </div>
                     <div class="custom-file col-xl-4 p-0 mx-auto">
-                        <input type="file" class="custom-file-input" name="img" accept="image/png, image/jpeg" required>
+                        <input type="file" class="custom-file-input" name="img" accept=".png, .jpg, .jpeg" required>
                         <label class="custom-file-label" >Apartment Image (Potrait)</label>
                     </div>
                 </div>

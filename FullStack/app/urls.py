@@ -13,7 +13,10 @@ urlpatterns = [
     path('apartment/<int:pk>', apartment, name='apartment'),
     
     path('listing/', listing, name='listing'),
+    path('rent_listing/', rent_listing, name='rent_listing'),
+    path('sale_listing/', sale_listing, name='sale_listing'),
     path('agents/', agents, name='agents'),
     path('add_apartment/', add_apartment, name='add_apartment'),
 
 ]
+

@@ -58,103 +58,45 @@
     <div class="col-xl-10 bg-light p-5">
         <div class="row m-0 mb-2">
             <h4 class="fw-700 text-left">Latest listing</h4>
-            <a href="#" class="ml-auto fw-600">
+            <a href="{% url 'app:listing' %}" class="ml-auto fw-600">
                 view all
                 <i class='fa fa-angle-double-right' style="font-size: 16px;"></i>
             </a>
         </div>
 
         <div class="row m-0 d-flex justify-content-center">
+            {% for i in latest_listing %}
             <!-- start: Dream_Card-->
-            <a href="#">
+            <a href="{% url 'app:apartment' pk=i.pk %}">
                 <div class="dream_card mx-4">
-                    <div class="dream_card_img" style="background-image: url('{% static 'imgs/card_pic.png' %}');">
+                    <div class="dream_card_img" style="background-image: url('{{ i.img.url }}');">
                         <div class="non_hover_content">
                             <div class="tl_tag bg-orange d-flex justify-content-center">
-                                FOR RENT
+                                FOR {{ i.type }}
                             </div>
                             <div class="row m-0 card_info py-3">
                                 <div class="text-orange col-xl-12 p-0 fw-700 info_row">
-                                    $ 39,990
+                                    $ {{ i.price }}
                                     <span class="fw-500">/month</span>
                                 </div>
                                 <div class="fw-200 text-white col-xl-12 p-0">
                                     <img src="{% static 'icons/Icon material-location-on.png' %}" class="mr-1">
-                                    1/b/2 Adabor, Dhaka
+                                    {{ i.location }}
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="overlay_content">
-                            <p>FOR RENT</p>
-                            <p class="fw-800">$ 39,990</p>
+                            <p>FOR {{ i.type }}</p>
+                            <p class="fw-800">$ {{ i.price }}</p>
                             <button class="btn btn-orange my-1 px-4">view details</button>
                             <img class="d-flex my-2" src="{% static 'icons/card_ico.png' %}" style="width: 30px; height: 30px;">
-                            <p class="">1/b/2 Adabor, Dhaka</p>
+                            <p class="">{{ i.location }}</p>
                     </div>
                 </div>
             </a>
             <!-- End: Dream_Card-->
-            <!-- start: Dream_Card-->
-            <a href="#">
-                <div class="dream_card mx-4">
-                    <div class="dream_card_img" style="background-image: url('{% static 'imgs/card_pic.png' %}');">
-                        <div class="non_hover_content">
-                            <div class="tl_tag bg-green d-flex justify-content-center">
-                                FOR SALE
-                            </div>
-                            <div class="row m-0 card_info py-3">
-                                <div class="text-orange col-xl-12 p-0 fw-700 info_row">
-                                    $ 39,990
-                                    <span class="fw-500">/month</span>
-                                </div>
-                                <div class="fw-200 text-white col-xl-12 p-0">
-                                    <img src="{% static 'icons/Icon material-location-on.png' %}" class="mr-1">
-                                    1/b/2 Adabor, Dhaka
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="overlay_content">
-                            <p>FOR SALE</p>
-                            <p class="fw-800">$ 39,990</p>
-                            <button class="btn btn-orange my-1 px-4">view details</button>
-                            <img class="d-flex my-2" src="{% static 'icons/card_ico.png' %}" style="width: 30px; height: 30px;">
-                            <p class="">1/b/2 Adabor, Dhaka</p>
-                    </div>
-                </div>
-            </a>
-            <!-- End: Dream_Card-->
-            <!-- start: Dream_Card-->
-            <a href="#">
-                <div class="dream_card mx-4">
-                    <div class="dream_card_img" style="background-image: url('{% static 'imgs/card_pic.png' %}');">
-                        <div class="non_hover_content">
-                            <div class="tl_tag bg-orange d-flex justify-content-center">
-                                FOR RENT
-                            </div>
-                            <div class="row m-0 card_info py-3">
-                                <div class="text-orange col-xl-12 p-0 fw-700 info_row">
-                                    $ 39,990
-                                    <span class="fw-500">/month</span>
-                                </div>
-                                <div class="fw-200 text-white col-xl-12 p-0">
-                                    <img src="{% static 'icons/Icon material-location-on.png' %}" class="mr-1">
-                                    1/b/2 Adabor, Dhaka
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="overlay_content">
-                            <p>FOR RENT</p>
-                            <p class="fw-800">$ 39,990</p>
-                            <button class="btn btn-orange my-1 px-4">view details</button>
-                            <img class="d-flex my-2" src="{% static 'icons/card_ico.png' %}" style="width: 30px; height: 30px;">
-                            <p class="">1/b/2 Adabor, Dhaka</p>
-                    </div>
-                </div>
-            </a>
-            <!-- End: Dream_Card-->
+            {% endfor %}
             
         </div>
 
@@ -212,8 +154,8 @@
             <i class='fa fa-angle-right'></i>
         </p>
         <div class="row m-0">
-            <a href="#" class="btn btn-xl px-4 btn-orange">MAKE A BOOKING</a>
-            <a href="#" class="btn btn-xl px-4 btn-outline-dark mx-4">VIEW ALL LISTINGS</a>
+            <a href="{% url 'app:listing' %}" class="btn btn-xl px-4 btn-orange">MAKE A BOOKING</a>
+            <a href="{% url 'app:listing' %}" class="btn btn-xl px-4 btn-outline-dark mx-4">VIEW ALL LISTINGS</a>
         </div>
     </div>
     <div class="col-xl-5 about_pic">
@@ -250,105 +192,53 @@
             <!-- start: Dream_Carousel-->
             <div class="swiper mySwiper" id="swiper1">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <!-- start: Dream_Card-->
-                        <a href="#">
-                            <div class="dream_card mx-auto">
-                                <div class="dream_card_img" style="background-image: url('{% static 'imgs/card_pic.png' %}');">
-                                    <div class="non_hover_content">
-                                        <div class="tl_tag bg-orange d-flex justify-content-center">
-                                            FOR RENT
-                                        </div>
-                                        <div class="row m-0 card_info py-3">
-                                            <div class="text-orange col-xl-12 p-0 fw-700 row m-0 ml-3">
-                                                $ 39,990
-                                                <span class="fw-500">/month</span>
+                    {% for i in rent_listing %}
+                        <div class="swiper-slide">
+                            <!-- start: Dream_Card-->
+                            <a href="{% url 'app:apartment' pk=i.pk %}">
+                                <div class="dream_card mx-4">
+                                    <div class="dream_card_img" style="background-image: url('{{ i.img.url }}');">
+                                        <div class="non_hover_content">
+                                            <div class="tl_tag bg-orange d-flex justify-content-center">
+                                                FOR {{ i.type }}
                                             </div>
-                                            <div class="fw-200 text-white col-xl-12 row m-0">
-                                                <img src="{% static 'icons/Icon material-location-on.png' %}" class="mr-2 mt-1">
-                                                1/b/2 Adabor, Dhaka
+                                            <div class="row m-0 card_info py-3">
+                                                <div class="text-orange col-xl-12 p-0 fw-700 info_row">
+                                                    $ {{ i.price }}
+                                                    <span class="fw-500">/month</span>
+                                                </div>
+                                                <div class="fw-200 text-white col-xl-12 p-0">
+                                                    <img src="{% static 'icons/Icon material-location-on.png' %}" class="mr-1">
+                                                    {{ i.location }}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="overlay_content">
+                                            <p>FOR {{ i.type }}</p>
+                                            <p class="fw-800">$ {{ i.price }}</p>
+                                            <button class="btn btn-orange my-1 px-4">view details</button>
+                                            <img class="d-flex my-2" src="{% static 'icons/card_ico.png' %}" style="width: 30px; height: 30px;">
+                                            <p class="">{{ i.location }}</p>
+                                    </div>
                                 </div>
-                                <div class="overlay_content">
-                                        <p>FOR SALE</p>
-                                        <p class="fw-800">$ 39,990</p>
-                                        <button class="btn btn-orange my-1 px-4">view details</button>
-                                        <img class="d-flex my-2" src="{% static 'icons/card_ico.png' %}" style="width: 30px; height: 30px;">
-                                        <p class="">1/b/2 Adabor, Dhaka</p>
+                            </a>
+                            <!-- End: Dream_Card-->
+                        </div>
+                    {% endfor %}
+                    <div class="swiper-slide">
+                        <!-- start: Dream_Card-->
+                        <a href="{% url 'app:rent_listing' %}">
+                            <div class="dream_card mx-auto">
+                                <div class="dream_card_img" style="background-image: url('{% static 'imgs/load more.jpg' %}');">
+                                    <div class="overlay_content">
+                                        <p class="btn btn-orange">View More</p>
+                                    </div>
                                 </div>
                             </div>
                         </a>
                         <!-- End: Dream_Card-->
                     </div>
-                    <div class="swiper-slide">
-                        <!-- start: Dream_Card-->
-                        <a href="#">
-                            <div class="dream_card mx-auto">
-                                <div class="dream_card_img" style="background-image: url('{% static 'imgs/card_pic.png' %}');">
-                                    <div class="non_hover_content">
-                                        <div class="tl_tag bg-orange d-flex justify-content-center">
-                                            FOR RENT
-                                        </div>
-                                        <div class="row m-0 card_info py-3">
-                                            <div class="text-orange col-xl-12 p-0 fw-700 row m-0 ml-3">
-                                                $ 39,990
-                                                <span class="fw-500">/month</span>
-                                            </div>
-                                            <div class="fw-200 text-white col-xl-12 row m-0">
-                                                <img src="{% static 'icons/Icon material-location-on.png' %}" class="mr-2 mt-1">
-                                                1/b/2 Adabor, Dhaka
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="overlay_content">
-                                        <p>FOR SALE</p>
-                                        <p class="fw-800">$ 39,990</p>
-                                        <button class="btn btn-orange my-1 px-4">view details</button>
-                                        <img class="d-flex my-2" src="{% static 'icons/card_ico.png' %}" style="width: 30px; height: 30px;">
-                                        <p class="">1/b/2 Adabor, Dhaka</p>
-                                </div>
-                            </div>
-                        </a>
-                        <!-- End: Dream_Card-->
-                    </div>
-                    <div class="swiper-slide">
-                        <!-- start: Dream_Card-->
-                        <a href="#">
-                            <div class="dream_card mx-auto">
-                                <div class="dream_card_img" style="background-image: url('{% static 'imgs/card_pic.png' %}');">
-                                    <div class="non_hover_content">
-                                        <div class="tl_tag bg-orange d-flex justify-content-center">
-                                            FOR RENT
-                                        </div>
-                                        <div class="row m-0 card_info py-3">
-                                            <div class="text-orange col-xl-12 p-0 fw-700 row m-0 ml-3">
-                                                $ 39,990
-                                                <span class="fw-500">/month</span>
-                                            </div>
-                                            <div class="fw-200 text-white col-xl-12 row m-0">
-                                                <img src="{% static 'icons/Icon material-location-on.png' %}" class="mr-2 mt-1">
-                                                1/b/2 Adabor, Dhaka
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="overlay_content">
-                                        <p>FOR SALE</p>
-                                        <p class="fw-800">$ 39,990</p>
-                                        <button class="btn btn-orange my-1 px-4">view details</button>
-                                        <img class="d-flex my-2" src="{% static 'icons/card_ico.png' %}" style="width: 30px; height: 30px;">
-                                        <p class="">1/b/2 Adabor, Dhaka</p>
-                                </div>
-                            </div>
-                        </a>
-                        <!-- End: Dream_Card-->
-                    </div>
-                    <div class="swiper-slide">Slide 4</div>
-                    <div class="swiper-slide">Slide 5</div>
-                    <div class="swiper-slide">Slide 6</div>
                 </div>
 
 
@@ -365,105 +255,53 @@
         <div id="buy_carousel" class="tab-pane fade">
             <div class="swiper mySwiper" id="swiper1">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <!-- start: Dream_Card-->
-                        <a href="#">
-                            <div class="dream_card mx-auto">
-                                <div class="dream_card_img" style="background-image: url('{% static 'imgs/card_pic.png' %}');">
-                                    <div class="non_hover_content">
-                                        <div class="tl_tag bg-orange d-flex justify-content-center">
-                                            FOR RENT
-                                        </div>
-                                        <div class="row m-0 card_info py-3">
-                                            <div class="text-orange col-xl-12 p-0 fw-700 row m-0 ml-3">
-                                                $ 39,990
-                                                <span class="fw-500">/month</span>
+                    {% for i in sale_listing %}
+                        <div class="swiper-slide">
+                            <!-- start: Dream_Card-->
+                            <a href="{% url 'app:apartment' pk=i.pk %}">
+                                <div class="dream_card mx-4">
+                                    <div class="dream_card_img" style="background-image: url('{{ i.img.url }}');">
+                                        <div class="non_hover_content">
+                                            <div class="tl_tag bg-orange d-flex justify-content-center">
+                                                FOR {{ i.type }}
                                             </div>
-                                            <div class="fw-200 text-white col-xl-12 row m-0">
-                                                <img src="{% static 'icons/Icon material-location-on.png' %}" class="mr-2 mt-1">
-                                                1/b/2 Adabor, Dhaka
+                                            <div class="row m-0 card_info py-3">
+                                                <div class="text-orange col-xl-12 p-0 fw-700 info_row">
+                                                    $ {{ i.price }}
+                                                    <span class="fw-500">/month</span>
+                                                </div>
+                                                <div class="fw-200 text-white col-xl-12 p-0">
+                                                    <img src="{% static 'icons/Icon material-location-on.png' %}" class="mr-1">
+                                                    {{ i.location }}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="overlay_content">
+                                            <p>FOR {{ i.type }}</p>
+                                            <p class="fw-800">$ {{ i.price }}</p>
+                                            <button class="btn btn-orange my-1 px-4">view details</button>
+                                            <img class="d-flex my-2" src="{% static 'icons/card_ico.png' %}" style="width: 30px; height: 30px;">
+                                            <p class="">{{ i.location }}</p>
+                                    </div>
                                 </div>
-                                <div class="overlay_content">
-                                        <p>FOR RENT</p>
-                                        <p class="fw-800">$ 39,990</p>
-                                        <button class="btn btn-orange my-1 px-4">view details</button>
-                                        <img class="d-flex my-2" src="{% static 'icons/card_ico.png' %}" style="width: 30px; height: 30px;">
-                                        <p class="">1/b/2 Adabor, Dhaka</p>
+                            </a>
+                            <!-- End: Dream_Card-->
+                        </div>
+                    {% endfor %}
+                    <div class="swiper-slide">
+                        <!-- start: Dream_Card-->
+                        <a href="{% url 'app:sale_listing' %}">
+                            <div class="dream_card mx-auto">
+                                <div class="dream_card_img" style="background-image: url('{% static 'imgs/load more.jpg' %}');">
+                                    <div class="overlay_content">
+                                        <p class="btn btn-orange">View More</p>
+                                    </div>
                                 </div>
                             </div>
                         </a>
                         <!-- End: Dream_Card-->
                     </div>
-                    <div class="swiper-slide">
-                        <!-- start: Dream_Card-->
-                        <a href="#">
-                            <div class="dream_card mx-auto">
-                                <div class="dream_card_img" style="background-image: url('{% static 'imgs/card_pic.png' %}');">
-                                    <div class="non_hover_content">
-                                        <div class="tl_tag bg-orange d-flex justify-content-center">
-                                            FOR RENT
-                                        </div>
-                                        <div class="row m-0 card_info py-3">
-                                            <div class="text-orange col-xl-12 p-0 fw-700 row m-0 ml-3">
-                                                $ 39,990
-                                                <span class="fw-500">/month</span>
-                                            </div>
-                                            <div class="fw-200 text-white col-xl-12 row m-0">
-                                                <img src="{% static 'icons/Icon material-location-on.png' %}" class="mr-2 mt-1">
-                                                1/b/2 Adabor, Dhaka
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="overlay_content">
-                                        <p>FOR SALE</p>
-                                        <p class="fw-800">$ 39,990</p>
-                                        <button class="btn btn-orange my-1 px-4">view details</button>
-                                        <img class="d-flex my-2" src="{% static 'icons/card_ico.png' %}" style="width: 30px; height: 30px;">
-                                        <p class="">1/b/2 Adabor, Dhaka</p>
-                                </div>
-                            </div>
-                        </a>
-                        <!-- End: Dream_Card-->
-                    </div>
-                    <div class="swiper-slide">
-                        <!-- start: Dream_Card-->
-                        <a href="#">
-                            <div class="dream_card mx-auto">
-                                <div class="dream_card_img" style="background-image: url('{% static 'imgs/card_pic.png' %}');">
-                                    <div class="non_hover_content">
-                                        <div class="tl_tag bg-orange d-flex justify-content-center">
-                                            FOR RENT
-                                        </div>
-                                        <div class="row m-0 card_info py-3">
-                                            <div class="text-orange col-xl-12 p-0 fw-700 row m-0 ml-3">
-                                                $ 39,990
-                                                <span class="fw-500">/month</span>
-                                            </div>
-                                            <div class="fw-200 text-white col-xl-12 row m-0">
-                                                <img src="{% static 'icons/Icon material-location-on.png' %}" class="mr-2 mt-1">
-                                                1/b/2 Adabor, Dhaka
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="overlay_content">
-                                        <p>FOR RENT</p>
-                                        <p class="fw-800">$ 39,990</p>
-                                        <button class="btn btn-orange my-1 px-4">view details</button>
-                                        <img class="d-flex my-2" src="{% static 'icons/card_ico.png' %}" style="width: 30px; height: 30px;">
-                                        <p class="">1/b/2 Adabor, Dhaka</p>
-                                </div>
-                            </div>
-                        </a>
-                        <!-- End: Dream_Card-->
-                    </div>
-                    <div class="swiper-slide">Slide 4</div>
-                    <div class="swiper-slide">Slide 5</div>
-                    <div class="swiper-slide">Slide 6</div>
                 </div>
 
 
@@ -493,7 +331,7 @@
         <p class="dream_subtitle text-orange fw-600 m-0">Meet Our</p>
         <div class="row m-0">
             <p class="dream_title fw-600 m-0">Reliable Agents</p>
-            <a href="#" class="ml-auto mr-5 mt-4 fw-600">
+        <a href="{% url 'app:agents' %}" class="ml-auto mr-5 mt-4 fw-600">
                 view all
                 <i class='fa fa-angle-double-right' style="font-size: 16px;"></i>
             </a>
@@ -502,56 +340,18 @@
     </div>
     <div class="col-xl-10 my-2">
         <div class="row m-0">
+            {% for i in agents %}
             <!-- Start: Agent Card -->
             <div class="agent_card my-3 mx-auto">
-                <img src="{% static 'imgs/agent.png' %}" class="img-fluid">
-                <h6 class="text-center mt-2 p-0 fw-600">Daniel Jhon Wick</h6>
+                <img src="{{ i.img.url }}" class="img-fluid d-flex mx-auto">
+                <h6 class="text-center mt-2 p-0 fw-600">{{ i.fullname }}</h6>
                 <p class="text-center mb-2 p-0">Renowned Agent</p>
                 <div class="row m-0 d-flex justify-content-center">
-                    <a href="" class="btn btn-xl btn-orange px-4">View Profile</a>
+                    <a href="{% url 'app:profile' pk=i.username %}" class="btn btn-xl btn-orange px-4">View Profile</a>
                 </div>
             </div>
             <!-- End: Agent Card -->
-            <!-- Start: Agent Card -->
-            <div class="agent_card my-3 mx-auto">
-                <img src="{% static 'imgs/agent.png' %}" class="img-fluid">
-                <h6 class="text-center mt-2 p-0 fw-600">Daniel Jhon Wick</h6>
-                <p class="text-center mb-2 p-0">Renowned Agent</p>
-                <div class="row m-0 d-flex justify-content-center">
-                    <a href="" class="btn btn-xl btn-orange px-4">View Profile</a>
-                </div>
-            </div>
-            <!-- End: Agent Card -->
-            <!-- Start: Agent Card -->
-            <div class="agent_card my-3 mx-auto">
-                <img src="{% static 'imgs/agent.png' %}" class="img-fluid">
-                <h6 class="text-center mt-2 p-0 fw-600">Daniel Jhon Wick</h6>
-                <p class="text-center mb-2 p-0">Renowned Agent</p>
-                <div class="row m-0 d-flex justify-content-center">
-                    <a href="" class="btn btn-xl btn-orange px-4">View Profile</a>
-                </div>
-            </div>
-            <!-- End: Agent Card -->
-            <!-- Start: Agent Card -->
-            <div class="agent_card my-3 mx-auto">
-                <img src="{% static 'imgs/agent.png' %}" class="img-fluid">
-                <h6 class="text-center mt-2 p-0 fw-600">Daniel Jhon Wick</h6>
-                <p class="text-center mb-2 p-0">Renowned Agent</p>
-                <div class="row m-0 d-flex justify-content-center">
-                    <a href="" class="btn btn-xl btn-orange px-4">View Profile</a>
-                </div>
-            </div>
-            <!-- End: Agent Card -->
-            <!-- Start: Agent Card -->
-            <div class="agent_card my-3 mx-auto">
-                <img src="{% static 'imgs/agent.png' %}" class="img-fluid">
-                <h6 class="text-center mt-2 p-0 fw-600">Daniel Jhon Wick</h6>
-                <p class="text-center mb-2 p-0">Renowned Agent</p>
-                <div class="row m-0 d-flex justify-content-center">
-                    <a href="" class="btn btn-xl btn-orange px-4">View Profile</a>
-                </div>
-            </div>
-            <!-- End: Agent Card -->
+            {% endfor %}
         </div>
     </div>
 

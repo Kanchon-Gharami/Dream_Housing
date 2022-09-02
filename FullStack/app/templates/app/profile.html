@@ -22,12 +22,14 @@
             <h3 class="fw-800">{{ this_user.fullname }}</h3>
             <div class="row m-0">
                 <p>{{ this_user.job }}</p>
+                {% if own_page %}
                 <a href="#" class="ml-auto hover_scale-9" data-toggle="modal" data-target="#deleteconformationmodal">
                     <img src="{% static 'icons/trash.png' %}" class="mr-2" style="height: 20px;">
                 </a>
                 <a href="#" class="ml-2 hover_scale-9" style="margin-top: 2px;">
                     <i class="fa fa-pencil text-grey fs-22"></i>
                 </a>
+                {% endif %}
             </div>
             <div class="profile_points my-4 py-3">
                 <div class="row m-0 pt-2">
@@ -83,15 +85,13 @@
                     <div class="col-xl-8 p-0">
                         <h4 class="fw-800 my-3">All Attatched Listing</h4>
                     </div>
-                    {% if user.is_authenticated %}
-                        {% if user.is_agent and user.is_varified %}
-                            <div class="col-xl-4 p-0">
-                                <a href="{% url 'app:add_apartment' %}" class="btn btn-sm btn-orange float-right mt-3 px-3">
-                                    <i class="fa fa-plus mx-1"></i>
-                                    Add Items
-                                </a>
-                            </div>
-                        {% endif %}
+                    {% if allow_add %}
+                        <div class="col-xl-4 p-0">
+                            <a href="{% url 'app:add_apartment' %}" class="btn btn-sm btn-orange float-right mt-3 px-3">
+                                <i class="fa fa-plus mx-1"></i>
+                                Add Items
+                            </a>
+                        </div>
                     {% endif %}
                 </div>
                 <!-- Start: attatched Listing -->
@@ -100,7 +100,7 @@
                     <!-- start: Dream_Card-->
                     <a href="{% url 'app:apartment' pk=i.pk %}">
                         <div class="dream_card mx-4">
-                            <div class="dream_card_img" style="background-image: url('{% static 'imgs/card_pic.png' %}');">
+                            <div class="dream_card_img" style="background-image: url('{{ i.img.url }}');">
                                 <div class="non_hover_content">
                                     <div class="tl_tag bg-orange d-flex justify-content-center">
                                         {{ i.name }}

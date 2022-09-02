@@ -56,6 +56,7 @@ class Apartment(models.Model):
     swimmingpool = models.BooleanField(default=False)
     hospital = models.BooleanField(default=False)
     shoppingmall = models.BooleanField(default=False)
+    is_booked = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name

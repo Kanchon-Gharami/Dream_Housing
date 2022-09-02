@@ -526,16 +526,15 @@ a{
 
 
 /* Agent card */
-.agent_card img{
+.agent_card{
     width: 210px;
 }
 
 .agent_card img{
     width: 210px;
-    height: 210px;
-    background-position: center center;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
+    height: 250px;
+    object-fit: cover;
+    object-position: center center; 
 }
 
 .no_card{
@@ -576,6 +575,9 @@ a{
 
 .listing_card_img{
     min-height: 350px;
+    background-size: 100% auto;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 .listing_price_tag{
@@ -589,6 +591,14 @@ a{
     font-size: 14px;
     font-weight: 600;
     padding-top: 8px;
+}
+
+.cut-text{ 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* after 3 line show ... */
+    -webkit-box-orient: vertical;
 }
 
 
