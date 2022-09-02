@@ -192,3 +192,134 @@ def add_apartment(request):
     return render(request, "app/add_apartment.html")
 
 
+
+def notification(request):
+    this_user = MyCustomUser.objects.get(username=request.user.username)
+    try:
+        with transaction.atomic():
+            if request.method == "POST" and this_user.is_agent == True and this_user.is_varified == True:
+                noti_obj = Notification.objects.get(id=request.POST['noti_pk'])
+                noti_obj.is_approved = True
+                noti_obj.save()
+                this_apartment = Apartment.objects.get(id=request.POST['apartment_pk'])
+
+                notification_customer = Notification(
+                    reciever = noti_obj.sender,
+                    sender = this_user,
+                    apartment = this_apartment,
+                    topic = noti_obj.topic,
+                    message = ('Hi ' + str(noti_obj.sender) + ' ! Your: request ' + str(noti_obj.topic) + ' on apartment is confirmed by ' + str(this_user) ),
+                )
+                notification_customer.save()
+
+                if noti_obj.topic == 'booking':
+                    customer_obj = noti_obj.sender
+                    this_apartment.type = 'Booked'
+                    this_apartment.is_booked = True
+                    this_apartment.user.add(customer_obj)
+                    this_apartment.save()
+
+                return redirect("app:notification")
+
+    except Exception as e:
+            print('error: ' , e)
+            return HttpResponse("Oops Error Occurs: ", e)
+
+    context = {
+        'notification': Notification.objects.filter(reciever=this_user).order_by('-recieve_time'),
+        'this_user' : this_user
+    }
+    return render(request, "app/notification.html", context)
+
+
+
+def pay_a_visit(request):
+    this_user = MyCustomUser.objects.get(username=request.user.username)
+    if request.method == "POST":
+        visit_date = request.POST['visit_date']
+        apartment_obj = Apartment.objects.get(pk=request.POST['apartment_id'])
+
+        for i in apartment_obj.user.all():
+            if i.is_agent == True and i.is_varified == True:
+                apartment_owner = i
+                break
+
+        try:
+            with transaction.atomic():
+                VisitRequest_obj = VisitRequest(
+                    user = this_user,
+                    apartment = apartment_obj,
+                    tour_date = visit_date
+                )
+                VisitRequest_obj.save()
+
+                notification_owner = Notification(
+                    reciever = apartment_owner,
+                    sender = this_user,
+                    apartment = apartment_obj,
+                    topic = 'tour',
+                    message = 'hi property owner! You have a new house tour request for apartment ' + str(apartment_obj.name) + ' from customer: ' + str(this_user.fullname) + ' on date: ' + str(visit_date) + '. Please approve this request if you free at that time.',
+                    is_approved = False,
+                )
+                notification_owner.save()
+
+                notification_customer = Notification(
+                    reciever = this_user,
+                    sender = apartment_owner,
+                    apartment = apartment_obj,
+                    topic = 'tour',
+                    message = str('Dear customer, your tour request is granted. Please wait for house owner aproval. Thanks!'),
+                )
+                notification_customer.save()
+
+        except Exception as e:
+            print('error: ' , e)
+            return HttpResponse("Oops Error Occurs: ", e)
+
+    return redirect("app:notification")
+
+
+
+def booking(request):
+    this_user = MyCustomUser.objects.get(username=request.user.username)
+
+    if request.method == "POST" and this_user.is_customer:
+        apartment_obj = Apartment.objects.get(pk=request.POST['apartment_id'])
+
+        for i in apartment_obj.user.all():
+            if i.is_agent == True and i.is_varified == True:
+                apartment_owner = i
+                break
+
+        try:
+            with transaction.atomic():
+                BookingRequest_obj = VisitRequest(
+                    apartment = apartment_obj,
+                    user = this_user,
+                )
+                BookingRequest_obj.save()
+
+                notification_owner = Notification(
+                    reciever = apartment_owner,
+                    sender = this_user,
+                    apartment = apartment_obj,
+                    topic = 'booking',
+                    message = ('hi property owner! You have a new house booking request for apartment: ' + str(apartment_obj.name) + ' from customer: ' + str(this_user.fullname) ),
+                    is_approved = False,
+                )
+                notification_owner.save()
+
+                notification_customer = Notification(
+                    reciever = this_user,
+                    sender = apartment_owner,
+                    apartment = apartment_obj,
+                    topic = 'booking',
+                    message = str('Dear customer, your booking request is granted. Please wait for house owner aproval. Thanks!'),
+                )
+                notification_customer.save()
+
+        except Exception as e:
+            print('error: ' , e)
+            return HttpResponse("Oops Error Occurs: ", e)
+
+    return redirect("app:notification")

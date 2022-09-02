@@ -101,7 +101,7 @@
 						<a href="{% url 'app:profile' pk=user %}" class="my-2 px-3 nav_ico_brdr">
 							<img src="{% static 'icons/nav_user.png' %}" class="nav_lgin_ico">
 						</a>
-						<a href="" class="my-2 px-3 nav_ico_brdr">
+						<a href="{% url 'app:notification' %}" class="my-2 px-3 nav_ico_brdr">
 							<img src="{% static 'icons/nav_bell.png' %}" class="nav_lgin_ico">
 						</a>
 						<a href="{% url 'app:log_out_view' %}" class="my-2 px-3">

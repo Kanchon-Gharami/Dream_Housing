@@ -34,6 +34,7 @@ class Apartment(models.Model):
     type=[
         ( 'Rent','Rent'),
         ( 'Sale','Sale'),
+        ( 'Booked','Booked'),
     ]
     user = models.ManyToManyField(MyCustomUser, related_name='apartments')
     name = models.CharField(max_length=200, blank=True, null=True)
@@ -60,3 +61,28 @@ class Apartment(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class VisitRequest(models.Model):
+    user = models.ForeignKey(MyCustomUser, on_delete=models.CASCADE, related_name='visit_request_user')
+    apartment = models.ForeignKey(Apartment, on_delete=models.CASCADE, related_name='visit_request_apartment')
+    tour_date = models.DateTimeField(default=datetime.now)
+
+
+class BookingRequest(models.Model):
+    apartment = models.ForeignKey(Apartment, on_delete=models.CASCADE, related_name='booking_request_apartment')
+    user = models.ForeignKey(MyCustomUser, on_delete=models.CASCADE, related_name='booking_request_user')
+
+
+class Notification(models.Model):
+    topic=[
+        ( 'tour','tour'),
+        ( 'booking','booking'),
+    ]
+    reciever = models.ForeignKey(MyCustomUser, on_delete=models.CASCADE, related_name='notification_reciever')
+    sender = models.ForeignKey(MyCustomUser, on_delete=models.CASCADE, related_name='notification_sender', null=True, blank=True)
+    apartment = models.ForeignKey(Apartment, on_delete=models.CASCADE, related_name='notification_apartment', null=True, blank=True)
+    topic = models.CharField(max_length=200, choices=topic, default='Tour')
+    message = models.TextField()
+    recieve_time = models.DateTimeField(default=datetime.now)
+    is_approved = models.BooleanField(null=True, blank=True)

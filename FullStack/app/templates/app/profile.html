@@ -95,40 +95,44 @@
                     {% endif %}
                 </div>
                 <!-- Start: attatched Listing -->
-                <div class="row m-0 d-flex justify-content-center">
-                    {% for i in listing %}
-                    <!-- start: Dream_Card-->
-                    <a href="{% url 'app:apartment' pk=i.pk %}">
-                        <div class="dream_card mx-4">
-                            <div class="dream_card_img" style="background-image: url('{{ i.img.url }}');">
-                                <div class="non_hover_content">
-                                    <div class="tl_tag bg-orange d-flex justify-content-center">
-                                        {{ i.name }}
-                                    </div>
-                                    <div class="row m-0 card_info py-3">
-                                        <div class="text-orange col-xl-12 p-0 fw-700 info_row">
-                                            $ {{ i.price }}
-                                            <span class="fw-500">/month</span>
+                {% if listing %}
+                    <div class="row m-0 d-flex justify-content-center">
+                        {% for i in listing %}
+                        <!-- start: Dream_Card-->
+                        <a href="{% url 'app:apartment' pk=i.pk %}">
+                            <div class="dream_card mx-4">
+                                <div class="dream_card_img" style="background-image: url('{{ i.img.url }}');">
+                                    <div class="non_hover_content">
+                                        <div class="tl_tag bg-orange d-flex justify-content-center">
+                                            {{ i.name }}
                                         </div>
-                                        <div class="fw-200 text-white col-xl-12 p-0">
-                                            <img src="{% static 'icons/Icon material-location-on.png' %}" class="mr-1">
-                                            {{ i.location }}
+                                        <div class="row m-0 card_info py-3">
+                                            <div class="text-orange col-xl-12 p-0 fw-700 info_row">
+                                                $ {{ i.price }}
+                                                <span class="fw-500">/month</span>
+                                            </div>
+                                            <div class="fw-200 text-white col-xl-12 p-0">
+                                                <img src="{% static 'icons/Icon material-location-on.png' %}" class="mr-1">
+                                                {{ i.location }}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="overlay_content">
+                                        <p>{{ i.name }}</p>
+                                        <p class="fw-800">$ {{ i.price }}</p>
+                                        <button class="btn btn-orange my-1 px-4">view details</button>
+                                        <img class="d-flex my-2" src="{% static 'icons/card_ico.png' %}" style="width: 30px; height: 30px;">
+                                        <p class="">{{ i.location }}</p>
+                                </div>
                             </div>
-                            <div class="overlay_content">
-                                    <p>{{ i.name }}</p>
-                                    <p class="fw-800">$ {{ i.price }}</p>
-                                    <button class="btn btn-orange my-1 px-4">view details</button>
-                                    <img class="d-flex my-2" src="{% static 'icons/card_ico.png' %}" style="width: 30px; height: 30px;">
-                                    <p class="">{{ i.location }}</p>
-                            </div>
-                        </div>
-                    </a>
-                    <!-- End: Dream_Card-->
-                    {% endfor %}
-                </div>
+                        </a>
+                        <!-- End: Dream_Card-->
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <img src="{% static 'imgs/not_found.svg' %}" class="img-fluid d-flex mx-auto" style="height: 300px;">
+                {% endif %}
                 <!-- End: attatched Listing -->
             </div>
         </div>

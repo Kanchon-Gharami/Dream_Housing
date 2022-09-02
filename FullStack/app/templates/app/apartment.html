@@ -53,10 +53,12 @@
                 </div>
             </div>
             {% if not own_apartment %}
-            <div class="row m-0">
-                <a href="#" class="btn btn-md btn-outline-dark mx-2 my-2 px-45 hover_scale-9" data-toggle="modal" data-target="#pay_a_visit">Pay a Visit</a>
-                <a href="#" class="btn btn-md btn-orange mx-2 my-2 px-4 hover_scale-9" data-toggle="modal" data-target="#booking_successful">Make a Booking</a>
-            </div>
+                {% if not this_apartment.is_booked %}
+                    <div class="row m-0">
+                        <a href="#" class="btn btn-md btn-outline-dark mx-2 my-2 px-45 hover_scale-9" data-toggle="modal" data-target="#pay_a_visit">Pay a Visit</a>
+                        <a href="#" class="btn btn-md btn-orange mx-2 my-2 px-4 hover_scale-9" data-toggle="modal" data-target="#booking_successful">Make a Booking</a>
+                    </div>
+                {% endif %}
             {% endif %}
         </div>
     </div>
@@ -162,13 +164,14 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="" method="post">
+            <form action="{% url 'app:pay_a_visit' %}" method="post">
                 {% csrf_token %}
                 <div class="modal-body">
                     <div class="form-group mb-2">
-                        <label class="sr-only">Pick a date</label>
+                        <label class="sr-only" name="tour_date">Pick a date</label>
                         <input type="date" class="form-control" name="visit_date" required>
                     </div>
+                    <input type="hidden" value="{{ this_apartment.pk }}" name="apartment_id" >                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -186,17 +189,22 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="pay_a_visitLabel">Your Booking Successyfully Completed</h5>
+                <h5 class="modal-title" id="pay_a_visitLabel">Booking Conformation</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <p>We will inform you with update notification. Please wait until our agent approve your booking request.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
+            <form action="{% url 'app:booking' %}" method="post">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <p>Are you sure to proceed with the booking process for this apartment?</p>
+                    <input type="hidden" value="{{ this_apartment.pk }}" name="apartment_id" >                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Confirm</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
