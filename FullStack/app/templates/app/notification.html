@@ -40,7 +40,7 @@
                             {% if this_user.is_agent and this_user.is_varified %}
                                 <td>
                                     {% if i.is_approved %}
-                                        <button class="btn btn-sm btn-info">Approved</button>
+                                        <p class="text-info">Approved</button>
                                     {% else %}
                                     <form method="post">
                                         {% csrf_token %}
