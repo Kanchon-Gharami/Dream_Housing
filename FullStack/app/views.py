@@ -53,7 +53,7 @@ def registration(request):
                         u.is_customer = True
                         u.is_varified = True
                     elif user_type == 'Agent':
-                        u.is_customer = True
+                        u.is_agent = True
                     u.save()
                     if u is not None:
                         login(request, u)
@@ -84,13 +84,16 @@ def login_view(request):
 
 def profile(request, pk):
     this_user = MyCustomUser.objects.get(username=pk)
-    visitor = MyCustomUser.objects.get(username=request.user.username)
     own_page = False
     allow_add = False
-    if this_user == visitor:
-        own_page = True
-        if this_user.is_agent == True and this_user.is_varified == True:
-            allow_add = True
+    try:
+        visitor = MyCustomUser.objects.get(username=request.user.username)
+        if this_user == visitor:
+            own_page = True
+            if this_user.is_agent == True and this_user.is_varified == True:
+                allow_add = True
+    except:
+        print('no user loggedin')
     context={
         'this_user': this_user,
         'listing' : this_user.apartments.all(),
