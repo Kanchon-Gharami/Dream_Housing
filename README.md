@@ -24,7 +24,11 @@ Python and Django need to be installed
 First clone the repository to your local machine:
 
 ```bash
-    git clone https://github.com/Kanchon-Gharami/Dream_Housing/tree/main/FullStack
+    git clone https://github.com/Kanchon-Gharami/Dream_Housing.git
+```
+Go to 'FullStack' Folder:
+```bash 
+    cd Fullstack
 ```
 
 ## Create Database
