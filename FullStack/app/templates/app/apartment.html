@@ -23,7 +23,7 @@
                 <a href="#" class="ml-auto hover_scale-9" data-toggle="modal" data-target="#deleteconformationmodal">
                     <img src="{% static 'icons/trash.png' %}" class="mr-2" style="height: 20px;">
                 </a>
-                <a href="#" class="ml-2 hover_scale-9" style="margin-top: 2px;">
+                <a href="{% url 'app:edit_apartment' pk=this_apartment.pk %}" class="ml-2 hover_scale-9" style="margin-top: 2px;">
                     <i class="fa fa-pencil text-grey fs-22"></i>
                 </a>
                 {% endif %}
@@ -211,6 +211,7 @@
 <!-- End: Pay A Visit Modal -->
 
 
+{% if own_apartment %}
 <!-- Start: Delet Confirm Modal -->
 <div class="modal fade" id="deleteconformationmodal" tabindex="-1" role="dialog" aria-labelledby="deleteconformationmodalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -221,10 +222,11 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="" method="post">
+            <form action="{% url 'app:delete_apartment' %}" method="post">
                 {% csrf_token %}
                 <div class="modal-body">
                     Are you sure about delete this apartment from listing?
+                    <input type="hidden" name="apartment_pk" value="{{ this_apartment.pk }}">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
@@ -235,6 +237,7 @@
     </div>
 </div>
 <!-- End: Delet Confirm Modal -->
+{% endif %}
 
 
 {% endblock %}

@@ -55,6 +55,8 @@ def registration(request):
                     elif user_type == 'Agent':
                         u.is_customer = True
                     u.save()
+                    if u is not None:
+                        login(request, u)
                 return redirect("app:index")
             except Exception as e:
                 return render(request, "app/registration.html", {'errors': e})
@@ -98,9 +100,33 @@ def profile(request, pk):
     return render(request, "app/profile.html", context)
 
 
+def delete_profile(request, pk):
+    this_user = MyCustomUser.objects.get(username=request.user.username)
+    given_user = MyCustomUser.objects.get(username=pk)
+    if request.method == 'POST':
+        logout(request)
+        this_user.delete()
+    return redirect("app:index")
+
+
 def listing(request):
     context = {
         'apartments' : Apartment.objects.filter(is_booked=False).order_by('-id'),
+    }
+    return render(request, "app/listing.html", context)
+
+
+def search_result(request):
+    if request.method == 'POST':
+        search_key = request.POST['search_key']
+        search_catagory = request.POST['search_catagory']
+    context = {
+        'apartments' : Apartment.objects.filter(
+            Q(name__icontains=search_key) |
+            Q(location__icontains=search_key) |
+            Q(price__icontains=search_key) |
+            Q(about__icontains=search_key)
+        ).order_by('-id'),
     }
     return render(request, "app/listing.html", context)
 
@@ -148,6 +174,51 @@ def apartment(request, pk):
         'own_apartment' : own_apartment,
     }
     return render(request, "app/apartment.html", context)
+
+def delete_apartment(request):
+    this_user = MyCustomUser.objects.get(username=request.user.username)
+    if request.method == 'POST':
+        apartment_obj = Apartment.objects.get(id=request.POST['apartment_pk'])
+        apartment_obj.delete()
+    return redirect("app:profile", pk=this_user.pk)
+
+
+def edit_apartment(request, pk):
+    this_user = MyCustomUser.objects.get(username=request.user.username)
+    apartment_obj = Apartment.objects.get(id=pk)
+
+    if this_user.is_agent and this_user.is_varified and request.method=='POST':
+        try:
+            with transaction.atomic():
+                apartment_obj.name = request.POST['name']
+                apartment_obj.type = request.POST['type']
+                apartment_obj.location = request.POST['location']
+                apartment_obj.price = request.POST['price']
+                apartment_obj.area = request.POST['area']
+                apartment_obj.building_year = request.POST['building_year']
+                if 'img' in request.POST:
+                    apartment_obj.img = request.FILES['img']
+                apartment_obj.about = request.POST['about']
+                apartment_obj.bedroom = request.POST['bedroom']
+                apartment_obj.living = request.POST['living']
+                apartment_obj.dinning = request.POST['dinning']
+                apartment_obj.bathroom = request.POST['bathroom']
+                apartment_obj.garage = checkbox_val(request, 'garage')
+                apartment_obj.watchman = checkbox_val(request, 'watchman')
+                apartment_obj.garden = checkbox_val(request, 'garden')
+                apartment_obj.swimmingpool = checkbox_val(request, 'swimmingpool')
+                apartment_obj.hospital = checkbox_val(request, 'hospital')
+                apartment_obj.shoppingmall = checkbox_val(request, 'shoppingmall')
+
+                apartment_obj.save()
+                return redirect("app:apartment", pk=pk)
+        except Exception as e:
+            return render(request, "app/edit_apartment.html", {'errors': e})
+
+    context = {
+        'apartment_obj': apartment_obj
+    }
+    return render(request, "app/edit_apartment.html", context)
 
 
 def checkbox_val(request, x):

@@ -153,7 +153,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="" method="POST">
+            <form action="{% url 'app:delete_profile' pk=this_user.pk %}" method="POST">
                 {% csrf_token %}
                 <div class="modal-body">
                     Are you sure about delete your profile?

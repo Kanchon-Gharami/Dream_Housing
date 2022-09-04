@@ -22,9 +22,11 @@
         </ul>
         <div class="tab-content">
             <div id="search_buy" class="tab-pane fade in active show">
-                <form action="" method="">
+                <form action="{% url 'app:search_result' %}" method="POST">
+                    {% csrf_token %}
                     <div class="input-group">
                         <input class="form-control banner_inputbox" name="search_key" type="text" placeholder="Enter a location to find an apartment">
+                        <input type="hidden" name="search_catagory" value="Sale">
                         <div class="input-group-append">
                             <button class="btn btn-xl px-5 btn-orange" type="submit">
                                 <i class="fa fa-search pr-1"></i>
@@ -35,9 +37,11 @@
                 </form>
             </div>
             <div id="search_rent" class="tab-pane fade">
-                <form action="" method="">
+                <form action="{% url 'app:search_result' %}" method="POST">
+                    {% csrf_token %}
                     <div class="input-group">
                         <input class="form-control banner_inputbox" name="search_key" type="text" placeholder="Enter a location to find an apartment">
+                        <input type="hidden" name="search_catagory" value="Buy">
                         <div class="input-group-append">
                             <button class="btn btn-xl px-5 btn-orange" type="submit">
                                 <i class="fa fa-search pr-1"></i>
