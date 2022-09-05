@@ -24,7 +24,11 @@ Python and Django need to be installed
 First clone the repository to your local machine:
 
 ```bash
-    gitclone https://github.com/Kanchon-Gharami/Dream_Housing/tree/main/FullStack
+    git clone https://github.com/Kanchon-Gharami/Dream_Housing.git
+```
+Go to 'FullStack' Folder:
+```bash 
+    cd Fullstack
 ```
 
 ## Create Database
@@ -63,7 +67,7 @@ Then go to the browser and enter the url
  Admin ensures only Agent's consent.
 <image src="Readme_img/Admin.png"/>
  Click "add items" then Agent add apartment detials and provide the necessary information.
-<img src="Readme_img/Add_img.png"/>
+<img src="Readme_img/Add_item.png"/>
 <image src="Readme_img/Apartment.png"/>
  Customer chooses an apartment on the listing page.
 <image src="Readme_img/Listing.png"/>
