@@ -161,6 +161,7 @@ def agents(request):
 
 def apartment(request, pk):
     this_apartment = Apartment.objects.get(id=pk)
+    this_user = None
     agent = None
     own_apartment = False
     for i in this_apartment.user.all():
@@ -168,7 +169,10 @@ def apartment(request, pk):
             agent = i
             break
     # check user is agent or not
-    this_user = MyCustomUser.objects.get(username=request.user.username)
+    try:
+        this_user = MyCustomUser.objects.get(username=request.user.username)
+    except:
+        print("No User")
     if this_user == agent:
         own_apartment = True
     context = {
